@@ -12,17 +12,17 @@
     <title>Red parATI</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="./styles/bootstrap.min.css" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="./styles/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="./css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="./styles/style.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="./scripts/ie-emulation-modes-warning.js"></script>
+    <script src="./js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -48,7 +48,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Inicio</a></li>
-            <li><a href="#about">Perfil</a></li>
+            <li><a href="./perfil.html">Perfil</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
@@ -67,19 +67,72 @@
 
 	<div class="row">
 		<!--Modulo de Inicio y Perfil-->
-		<div class="col-md-9 col-lg-9 col-xl-9 col-xs-9">
-			<div class="jumbotron">
-				<h1>qqNavbar example</h1>
-				<p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-				<p>To see the difference between static and fixed top navbars, just scroll.</p>
-				<p>
-				  <a class="btn btn-lg btn-primary" href="https://getbootstrap.com/docs/3.3/components/#navbar" role="button">View navbar docs »</a>
-				</p>
-			</div>
+		<div class="col-md-9 col-lg-9 col-xl-9 col-xs-9 col-sm-9">
+			
+
+
+			<!-- ////////////////////////////////////////////// POST ///////////////////////////////////////////////// -->
+	        <article class="post">
+	          <header>
+	            <div class="meta">
+	              <center>
+	              <time class="published" datetime="2015-11-01">26 de Diciembre, 2017</time>
+	              <br>
+	              <div class="useravatar">
+	                  <img alt="" src="./img/avatar.jpg">
+	              </div>
+	              <a href="#" class="author"><span class="name">Sam Claflin</span></a>
+	              </center>
+	            </div>
+	            <div class="title">
+	              <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+	            </div>
+	          </header>
+	          <a href="#" class="image featured"><img src="./img/dark_beach.jpg" alt="" /></a>
+	          <footer>
+	            <ul class="stats">
+	              <li><a href="#" class="glyphicon glyphicon-thumbs-up">289</a></li>
+	              <li><a href="#" class="glyphicon glyphicon-thumbs-down">2</a></li>
+	              <li><a href="#" class="glyphicon glyphicon-comment">50</a></li>
+	            </ul>
+	          </footer>
+	        </article>
+	        <!-- ////////////////////////////////////////////// /POST ///////////////////////////////////////////////// -->
+	        <!-- ////////////////////////////////////////////// POST ///////////////////////////////////////////////// -->
+	        <article class="post">
+	          <header>
+	            <div class="meta">
+	              <center>
+	              <time class="published" datetime="2015-11-01">30 de Noviembre, 2017</time>
+	              <br>
+	              <div class="useravatar">
+	                  <img alt="" src="./img/avatar.jpg">
+	              </div>
+	              <a href="#" class="author"><span class="name">Sam Claflin</span></a>
+	              </center>
+	            </div>
+	            <div class="title">
+	              <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+	            </div>
+	          </header>
+	          <a href="#" class="image featured"><img src="./img/THG.jpg" alt=""/></a>
+	          <footer>
+	            <ul class="stats">
+	              <li><a href="#" class="glyphicon glyphicon-thumbs-up">568</a></li>
+	              <li><a href="#" class="glyphicon glyphicon-thumbs-down">190</a></li>
+	              <li><a href="#" class="glyphicon glyphicon-comment">56</a></li>
+	            </ul>
+	          </footer>
+	        </article>
+	        <!-- ////////////////////////////////////////////// /POST ///////////////////////////////////////////////// -->
+
+
+
+
 		</div>
 
 		<!--Modulo del chat-->
-		<div class="col-md-3 col-lg-3 col-xl-3 col-xs-3 chat" >
+		<div class="col-md-3 col-lg-3 col-xl-3 col-xs-3 col-sm-3 chat" >
 			<div class="jumbotron">
 				<h4>Navbar example</h4>
 				<p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
@@ -93,11 +146,11 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="./scripts/jquery.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="./scripts/bootstrap.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="./scripts/ie10-viewport-bug-workaround.js"></script>
+    <script src="./js/ie10-viewport-bug-workaround.js"></script>
   
 
 </body></html>
