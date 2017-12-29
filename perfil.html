@@ -21,6 +21,7 @@
     <!-- Custom styles for this template -->
     <link href="./css/style.css" rel="stylesheet">
     <link href="./css/perfil.css" rel="stylesheet">
+    <link href="./css/gallery.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -33,7 +34,7 @@
     <![endif]-->
   </head>
 
-  <body>
+  <body onload="LoadPosts()">
 
     <!-- Barra de Tareas Horizontal -->
     <nav class="navbar navbar_color navbar-default navbar-fixed-top">
@@ -54,14 +55,14 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Configuración<span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-cog"></i> Configuración<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="#">Personalizar</a></li>
                 <li><a href="#">Configurar Cuenta</a></li>
                 <li><a href="#">Something else here</a></li>
               </ul>
             </li>
-            <li><a href="https://getbootstrap.com/docs/3.3/examples/navbar-static-top/">Cerrar Sesión</a></li>
+            <li><a href="#Cerrar Sesión">Cerrar Sesión</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -87,22 +88,28 @@
       <div style="margin-left: 10px">
         <div class="btn-pref btn-group btn-group-justified btn-group-lg"  role="group" aria-label="...">
             <div class="btn-group" role="group">
-                <button type="button" id="publicaciones" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>
+                <button type="button" id="publicaciones" onclick="LoadPosts()" class="btn btn-primary" href="#posts" data-toggle="tab"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>
                     <div class="hidden-xs">Publicaciones</div>
                 </button>
             </div>
             <div class="btn-group" role="group">
-                <button type="button" id="habilidades" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-education" aria-hidden="true"></span>
-                    <div class="hidden-xs">Habilidades y Educación</div>
+                <button type="button" id="fotos" onclick="LoadPhotos()" class="btn btn-default" href="#photos" data-toggle="tab"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+                    <div class="hidden-xs">Fotos</div>
                 </button>
             </div>
             <div class="btn-group" role="group">
-                <button type="button" id="amigos" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                <button type="button" id="habilidades" onclick="LoadSkills()" class="btn btn-default" href="#skills" data-toggle="tab"><span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+                    <div class="hidden-xs">Educación</div>
+                </button>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" id="amigos" class="btn btn-default" onclick="LoadFriends()" href="#friends" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                     <div class="hidden-xs">Amigos</div>
                 </button>
             </div>
         </div>
       </div>
+
       <div id="posts">
       <!-- ////////////////////////////////////////////// POST ///////////////////////////////////////////////// -->
         <article class="post">
@@ -124,9 +131,9 @@
           <a href="#" class="image featured"><img src="./img/dark_beach.jpg" alt="" /></a>
           <footer>
             <ul class="stats">
-              <li><a href="#" class="glyphicon glyphicon-thumbs-up">289</a></li>
-              <li><a href="#" class="glyphicon glyphicon-thumbs-down">2</a></li>
-              <li><a href="#" class="glyphicon glyphicon-comment">50</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i>289</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-thumbs-down"></i>2</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-comment"></i>50</a></li>
             </ul>
           </footer>
         </article>
@@ -151,22 +158,222 @@
           <a href="#" class="image featured"><img src="./img/THG.jpg" alt=""/></a>
           <footer>
             <ul class="stats">
-              <li><a href="#" class="glyphicon glyphicon-thumbs-up">568</a></li>
-              <li><a href="#" class="glyphicon glyphicon-thumbs-down">190</a></li>
-              <li><a href="#" class="glyphicon glyphicon-comment">59</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i>453</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-thumbs-down"></i>65</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-comment"></i>123</a></li>
             </ul>
           </footer>
         </article>
         <!-- ////////////////////////////////////////////// /POST ///////////////////////////////////////////////// -->
   		</div>
+
+        <!-- ////////////////////////////////////////////// FOTOS ///////////////////////////////////////////////// -->
+      <div id="photos">
+        <div class="bloqueBlanco">
+          <div class="fh5co-gallery">
+            <a class="gallery-item" href="single.html">
+              <img src="./img/work_1.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+              <span class="overlay blanco">
+                <h2>48</h2><span class="glyphicon glyphicon-heart blanco"  aria-hidden="true" ></span>
+                <h2>2</h2><span class="glyphicon glyphicon-comment blanco" aria-hidden="true"></span>
+              </span>
+            </a>
+            <a class="gallery-item" href="single.html">
+              <img src="./img/work_2.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+              <span class="overlay blanco">
+                <h2>67</h2><span class="glyphicon glyphicon-heart blanco"  aria-hidden="true" ></span>
+                <h2>12</h2><span class="glyphicon glyphicon-comment blanco" aria-hidden="true"></span>
+              </span>
+            </a>
+            <a class="gallery-item" href="single.html">
+              <img src="./img/work_3.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+              <span class="overlay blanco">
+                <h2>23</h2><span class="glyphicon glyphicon-heart blanco"  aria-hidden="true" ></span>
+                <h2>3</h2><span class="glyphicon glyphicon-comment blanco" aria-hidden="true"></span>
+              </span>
+            </a>
+            <a class="gallery-item" href="single.html">
+              <img src="./img/work_4.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+              <span class="overlay blanco">
+                <h2>47</h2><span class="glyphicon glyphicon-heart blanco"  aria-hidden="true" ></span>
+                <h2>29</h2><span class="glyphicon glyphicon-comment blanco" aria-hidden="true"></span>
+              </span>
+            </a>
+            <a class="gallery-item" href="single.html">
+              <img src="./img/work_5.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+              <span class="overlay blanco">
+                <h2>76</h2><span class="glyphicon glyphicon-heart blanco"  aria-hidden="true" ></span>
+                <h2>5</h2><span class="glyphicon glyphicon-comment blanco" aria-hidden="true"></span>
+              </span>
+            </a>
+            <a class="gallery-item" href="single.html">
+              <img src="./img/work_6.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+              <span class="overlay blanco">
+                <h2>41</h2><span class="glyphicon glyphicon-heart blanco"  aria-hidden="true" ></span>
+                <h2>23</h2><span class="glyphicon glyphicon-comment blanco" aria-hidden="true"></span>
+              </span>
+            </a>
+          </div>
+          <center>
+            <a class="btn-round btn-default azul" href="fotos.html">Ver Todas</a>
+          </center>
+        </div> 
+
+      </div>
+
+        <!-- ////////////////////////////////////////////// SKILLS ///////////////////////////////////////////////// -->
+      <div id="skills">
+        <div class="bloqueBlanco">
+            <h3>Educación:</h3>
+            <div class="bloquePerla job" id="primeraC"> 
+              <h4>Universidad Central de Venezuela - Caracas, Venezuela</h4>
+              <h5>Licenciatura, Computación &mdash; <strong>4.0 GPA</strong> </h5>
+              <p class="periodo">2012 - 2016</p>
+            </div>
+            <div class="bloquePerla job" id="segundaC"> 
+              <h4>Universidad Católica Andrés Bello - Caracas, Venezuela</h4>
+              <h5>Master, Cienciología &mdash; <strong>5.0 GPA</strong> </h5>
+              <p class="periodo">2016 - Presente</p>
+            </div>
+        </div>
+        <div class="bloqueBlanco">
+            <h3>Habilidades Profesionales:</h3>
+            <p>HTML</p>
+            <div class="barraSkills">
+              <div class="skills relleno" id="barraHTML" value="90" style="width: 90%" >90%</div>
+            </div>
+
+            <p>CSS</p>
+            <div class="barraSkills">
+              <div class="skills relleno" id="barraCSS" value="80" style="width: 80%">80%</div>
+            </div>
+
+            <p>JavaScript</p>
+            <div class="barraSkills">
+              <div class="skills relleno" id="barraJS" value="65" style="width: 65%">65%</div>
+            </div>
+
+            <p>Python</p>
+            <div class="barraSkills">
+              <div class="skills relleno" id="barraPy" value="60" style="width: 60%">60%</div>
+            </div>
+
+            <p>PHP</p>
+            <div class="barraSkills">
+              <div class="skills relleno" id="barraPHP" value="10" style="width: 10%">10%</div>
+            </div>
+        </div>
+        <div class="bloqueBlanco">
+            <h3>Personalidad</h3>
+            <p>Deportista</p>
+            <div class="barraSkills">
+              <div class="skills relleno" id="barraHTML" value="90" style="width: 90%" >90%</div>
+            </div>
+
+            <p>Estudioso</p>
+            <div class="barraSkills">
+              <div class="skills relleno" id="barraCSS" value="80" style="width: 80%">80%</div>
+            </div>
+
+            <p>Rumbero</p>
+            <div class="barraSkills">
+              <div class="skills relleno" id="barraJS" value="65" style="width: 75%">75%</div>
+            </div>
+
+            <p>Amigable</p>
+            <div class="barraSkills">
+              <div class="skills relleno" id="barraPy" value="60" style="width: 100%">100%</div>
+            </div>
+
+            <p>Humor</p>
+            <div class="barraSkills">
+              <div class="skills relleno" id="barraPHP" value="10" style="width: 95%">95%</div>
+            </div>
+        </div>
+      </div>
+
+
+        <!-- ////////////////////////////////////////////// AMIGOS ///////////////////////////////////////////////// -->
+      <div class="bloqueBlanco" id="friends">
+        <div class="row">
+          <div class="shadow">
+            <div class="col-sm-12">
+              <div class="col-sm-3 useravatar">
+                <img src="./img/AnneHathaway.jpg">
+              </div>
+              <div class="col-sm-6">
+                <h4><a href="#">Anne Hathaway</a></h4>
+                <p><a href="#">2 mutual friends</a></p>
+              </div>
+              <div class="col-sm-3">
+                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-comment" aria-hidden="true"></button>
+                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove" aria-hidden="true"></button>
+                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></button>
+                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></button>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <hr />
+            <div class="col-sm-12">
+              <div class="col-sm-3 useravatar" >
+                <img src="./img/zac-efron.jpg">
+              </div>
+              <div class="col-sm-6">
+                <h4><a href="#">Zac Efron</a></h4>
+                <p><a href="#">3 mutual friends</a></p>
+              </div>
+              <div class="col-sm-3">
+                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-comment" aria-hidden="true"></button>
+                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove" aria-hidden="true"></button>
+                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-star" aria-hidden="true"></button>
+                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></button>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <hr />
+            <div class="col-sm-12">
+              <div class="col-sm-3 useravatar">
+                <img src="./img/sasha.jpg">
+              </div>
+              <div class="col-sm-6">
+                <h4><a href="#">Sasha Lizardi</a></h4>
+                <p><a href="#">1 mutual friends</a></p>
+              </div>
+              <div class="col-sm-3">
+                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-comment" aria-hidden="true"></button>
+                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove" aria-hidden="true"></button>
+                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></button>
+                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></button>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <hr />
+            <div class="col-sm-12">
+              <div class="col-sm-3 useravatar">
+                <img src="./img/josh-hutcherson.jpg">
+              </div>
+              <div class="col-sm-6">
+                <h4><a href="#">Josh Hutcherson</a></h4>
+                <p><a href="#">4 mutual friends</a></p>
+              </div>
+              <div class="col-sm-3">
+                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-comment" aria-hidden="true"></button>
+                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove" aria-hidden="true"></button>
+                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></button>
+                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></button>
+              </div>
+            </div>
+            <div class="clearfix" style="margin-bottom: 2em;"></div>
+          </div>
+        </div>
+        <center>
+          <a class="btn-round btn-default azul" href="amigos.html">Ver Todos</a>
+        </center>
+      </div>
     </div>
 		<!--Modulo del chat-->
     <div class="col-md-3 col-lg-3 col-xl-3 col-xs-3 col-sm-3 chat" >
-			<div class="jumbotron">
-				<h4>Navbar example</h4>
-				<p>This example is a quick exercise to illustrate how the default, static and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-				
-			</div>
+
 		</div>
 	</div>
 
@@ -175,6 +382,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./js/perfil.js"></script>
     <script src="./js/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="./js/bootstrap.min.js"></script>
