@@ -1,7 +1,28 @@
 body {
+  --color-page-background: #eee;
+  --color-primary-light: #fff;
+  --color-primary-dark: #333;
+  --color-primary-gray: #e6e6e6;
+  --color-primary-color: #2196F3;
   padding-top: 50px;
   padding-bottom: 50px;
-  background-color: #eee;
+  background-color: var(--color-page-background);
+
+}
+  
+.nightmode {
+  --color-page-background: #333;
+  --color-primary-light: #111;
+  --color-primary-dark: #fff;
+  --color-primary-gray: #5b5b5b;
+}
+
+* {
+    transition: all .2s ease-in;
+}
+
+a{
+    color: var(--color-primary-color);
 }
 
 img {
@@ -9,22 +30,30 @@ img {
     height: auto;
 }
 
+h1, h2, h3, h4, h5 {
+    color: var(--color-primary-dark);
+}
+
+.btn-primary.focus, .btn-primary:focus ,.btn-primary{
+    background-color: var(--color-primary-color) !important;
+}
+
 .azul {
 	margin-bottom: 1em;
-	background-color: #2e6da4;
-	color: #fff;
-	border: solid 1px #6f99db ;
+	background-color: var(--color-primary-color);
+	color: var(--color-primary-light);
+	border: solid 1px #2186f2 ;
 }
 
 .azul:hover {
 	margin-top: 1em;
-	background-color: #6f99db;
-	color: #fff;
-	border: solid 1px #6f99db ;
+	background-color: #2186f2;
+	color: var(--color-primary-light);
+	border: solid 1px #2186f2 ;
 }
 
 .blanco {
-    color: #fff !important;
+    color: var(--color-primary-light) !important;
     text-decoration: none;
 }
 
@@ -53,18 +82,18 @@ img {
 
 		.stats li a:hover  , .stats li a i:hover {
 			border-bottom-color: transparent;
-			color: #2e6da4 !important;
+			color: var(--color-primary-color) !important;
 		}
 
 			.stats li a:hover:before  , .stats li a i:hover:before{
-				color: #2e6da4 !important;
+				color: var(--color-primary-color) !important;
 			}
 /*--------------------------------------------- Bloques --------------------------*/
 
 
 .bloqueBlanco {
     padding: 2em 3em 1em 3em ;
-    background: #ffffff;
+    background: var(--color-primary-light);
     border: solid 1px rgba(160, 160, 160, 0.3);
     margin: 2em 1em 0em 2em;
     position: relative;
@@ -118,17 +147,17 @@ img {
 }
 
 .navbar_color {
-	background-color: #333 !important; 
-	color: #fff !important;
+	background-color: var(--color-primary-dark) !important; 
+	color: var(--color-primary-light) !important;
 	opacity: 0.95;
 }
 
 .navbar-default .navbar-nav>li>a , .navbar-default .navbar-nav .open .dropdown-menu>li>a,.navbar-default .navbar-brand, .navbar-default .navbar-brand:hover{
-    color: #fff;
+    color: var(--color-primary-light);
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-    background-color: #fff;
+    background-color: var(--color-primary-light);
 }
 
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, 
@@ -142,21 +171,21 @@ img {
 }
 
 .navbar-default .navbar-nav .open .dropdown-menu{
-	background-color: #ddd;
+	background-color: var(--color-primary-gray);
 }
 
 .navbar-default .navbar-nav .open .dropdown-menu>li>a{
-	color: #333
+	color: var(--color-primary-dark)
 }
 
 .navbar-default .navbar-toggle {
-    border-color: #fff;
+    border-color: var(--color-primary-light);
 }
 /* ----------------------------------------------Barra de Navegacion ------------------------------------------- */
 /* -----------------------------------------------------Post --------------------------------------------------- */
     .post {
         padding: 3em 3em 1em 3em ;
-        background: #ffffff;
+        background: var(--color-primary-light);
         border: solid 1px rgba(160, 160, 160, 0.3);
         margin: 3em 2em 3em 3em;
         position: relative;
@@ -304,7 +333,7 @@ img {
 
             .post {
                 padding: 3em 3em 1em 3em ;
-		        background: #ffffff;
+		        background: var(--color-primary-light);
 		        border: solid 1px rgba(160, 160, 160, 0.3);
 		        margin: 3em 2em 3em 3em;
 		        position: relative;
@@ -387,7 +416,7 @@ img {
 
             .post {
                 padding: 3em 3em 1em 3em ;
-		        background: #ffffff;
+		        background: var(--color-primary-light);
 		        border: solid 1px rgba(160, 160, 160, 0.3);
 		        margin: 3em 2em 3em 3em;
 		        position: relative;

@@ -41,3 +41,7 @@ function LoadPhotos(){
   });
   $("#fotos").removeClass("btn-default").addClass("btn-primary");
 }
+
+function ModoNocturno() {
+  document.body.classList.toggle('nightmode');
+};
