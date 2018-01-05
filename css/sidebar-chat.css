@@ -1,0 +1,38 @@
+.g4_sidechat {
+	background-color: white;
+	height: calc(100vh - 51px);
+	width: inherit;
+	position: fixed;
+	overflow-y: hidden;
+}
+
+.g4_sidechat:hover {
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.g4_thumbnail_container {
+	padding-right: 0px;
+}
+
+.g4_sidechat_thumbnail {
+	margin-top:3px;
+	width:54px;
+	height:54px;
+	border-radius:27px;
+	float: right;
+}
+
+.g4_name_container {
+	height: 60px;
+}
+
+.g4_sidechat_name {
+	position: absolute;
+	top: 50%;
+	transform: translate(0,-50%);
+}
+
+.g4_sidebar_friend:hover {
+	background-color: #EEEEEE;
+}
