@@ -17,10 +17,6 @@ body {
   --color-primary-gray: #5b5b5b;
 }
 
-* {
-    transition: all .2s ease-in;
-}
-
 a{
     color: var(--color-primary-color);
 }
