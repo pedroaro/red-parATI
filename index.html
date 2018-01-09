@@ -190,12 +190,14 @@
 
 		</div>
 
-		<!--Modulo del chat-->
+		<!--__________________________________INICIO_SIDEBAR_CHAT__________________________________-->
+
 		<div class="col-sm-3 hidden-xs">
 			<div class="row g4_sidechat">
 				<div class="col-sm-12">
 					
-					<div class="row g4_sidebar_friend">
+					<!-- Amigos en la lista de contactos lateral -->
+					<div class="row g4_sidebar_friend" data-id="f1">
 						<div class="col-sm-4 g4_thumbnail_container">
 							<img src="./img/AnneHathaway.jpg" class="g4_sidechat_thumbnail">
 						</div>
@@ -204,7 +206,7 @@
 						</div>
 					</div>
 					
-					<div class="row g4_sidebar_friend">
+					<div class="row g4_sidebar_friend" data-id="f2">
 						<div class="col-sm-4 g4_thumbnail_container">
 							<img src="./img/josh-hutcherson.jpg" class="g4_sidechat_thumbnail">
 						</div>
@@ -213,7 +215,7 @@
 						</div>
 					</div>
 					
-					<div class="row g4_sidebar_friend">
+					<div class="row g4_sidebar_friend" data-id="f3">
 						<div class="col-sm-4 g4_thumbnail_container">
 							<img src="./img/sasha.jpg" class="g4_sidechat_thumbnail">
 						</div>
@@ -222,7 +224,7 @@
 						</div>
 					</div>
 					
-					<div class="row g4_sidebar_friend">
+					<div class="row g4_sidebar_friend" data-id="f4">
 						<div class="col-sm-4 g4_thumbnail_container">
 							<img src="./img/zac-efron.jpg" class="g4_sidechat_thumbnail">
 						</div>
@@ -231,7 +233,7 @@
 						</div>
 					</div>
 					
-					<div class="row g4_sidebar_friend">
+					<div class="row g4_sidebar_friend" data-id="f5">
 						<div class="col-sm-4 g4_thumbnail_container">
 							<img src="./img/mark-zuckerberg.jpg" class="g4_sidechat_thumbnail">
 						</div>
@@ -240,7 +242,7 @@
 						</div>
 					</div>
 					
-					<div class="row g4_sidebar_friend">
+					<div class="row g4_sidebar_friend" data-id="f6">
 						<div class="col-sm-4 g4_thumbnail_container">
 							<img src="./img/saul-hudson.jpg" class="g4_sidechat_thumbnail">
 						</div>
@@ -249,7 +251,7 @@
 						</div>
 					</div>
 					
-					<div class="row g4_sidebar_friend">
+					<div class="row g4_sidebar_friend" data-id="f7">
 						<div class="col-sm-4 g4_thumbnail_container">
 							<img src="./img/arnold-schwarzenegger.jpeg" class="g4_sidechat_thumbnail">
 						</div>
@@ -258,7 +260,7 @@
 						</div>
 					</div>
 					
-					<div class="row g4_sidebar_friend">
+					<div class="row g4_sidebar_friend" data-id="f8">
 						<div class="col-sm-4 g4_thumbnail_container">
 							<img src="./img/lisa-kudrow.jpeg" class="g4_sidechat_thumbnail">
 						</div>
@@ -267,7 +269,7 @@
 						</div>
 					</div>
 					
-					<div class="row g4_sidebar_friend">
+					<div class="row g4_sidebar_friend" data-id="f9">
 						<div class="col-sm-4 g4_thumbnail_container">
 							<img src="./img/david-schwimmer.jpeg" class="g4_sidechat_thumbnail">
 						</div>
@@ -276,7 +278,7 @@
 						</div>
 					</div>
 					
-					<div class="row g4_sidebar_friend">
+					<div class="row g4_sidebar_friend" data-id="f10">
 						<div class="col-sm-4 g4_thumbnail_container">
 							<img src="./img/courteney-cox.jpeg" class="g4_sidechat_thumbnail">
 						</div>
@@ -285,7 +287,7 @@
 						</div>
 					</div>
 					
-					<div class="row g4_sidebar_friend">
+					<div class="row g4_sidebar_friend" data-id="f11">
 						<div class="col-sm-4 g4_thumbnail_container">
 							<img src="./img/matt-leblanc.jpeg" class="g4_sidechat_thumbnail">
 						</div>
@@ -294,7 +296,7 @@
 						</div>
 					</div>
 					
-					<div class="row g4_sidebar_friend">
+					<div class="row g4_sidebar_friend" data-id="f12">
 						<div class="col-sm-4 g4_thumbnail_container">
 							<img src="./img/jennifer-aniston.jpeg" class="g4_sidechat_thumbnail">
 						</div>
@@ -303,7 +305,7 @@
 						</div>
 					</div>
 					
-					<div class="row g4_sidebar_friend">
+					<div class="row g4_sidebar_friend" data-id="f13">
 						<div class="col-sm-4 g4_thumbnail_container">
 							<img src="./img/matthew-perry.jpeg" class="g4_sidechat_thumbnail">
 						</div>
@@ -316,10 +318,13 @@
 			</div>
 		</div>
 		
+		<!-- Chat tabs -->
+		<div class="col-xs-9 hidden-xs g4_chat_tab_container"></div>
+		
+		<!--__________________________________FIN_SIDEBAR_CHAT__________________________________-->
+		
 	</div>
 	</div>
-
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -330,5 +335,7 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="./js/ie10-viewport-bug-workaround.js"></script>
   
+	<!-- Script del sidebar chat -->
+	<script src="./js/sidebar-chat.js"></script>
 
 </body></html>
