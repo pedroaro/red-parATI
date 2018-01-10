@@ -45,13 +45,26 @@
   <!-- Form Module-->
   <div class="module form-module">
     <div class="toggle"><i class="fa fa-times fa-plus"></i>
-      <div class="cooltip">¡Regístrate!</div>
+      <div class="cooltip" id="cooltip">¡Regístrate!</div>
     </div>
     <div class="form" id="login">
       <h2>Inicio de Sesión</h2>
       <form action="index.html">
         <input type="text" placeholder="Usuario o Correo"/>
         <input type="password" placeholder="Contraseña"/>
+        <div class="row" style="margin-bottom: 2em; height: 2em;">
+          <div class="col-md-4 col-lg-4 col-xl-4 col-xs-4 col-sm-4 tiny" style="height:100%;">Ingresa con</div>
+          <div class="col-md-4 col-lg-4 col-xl-4 col-xs-4 col-sm-4" style="height:100%"></div>
+          <div class="col-md-1 col-lg-1 col-xl-1 col-xs-1 col-sm-1" style="height:100%">
+            <img alt="Google" src="./img/Google_circle.svg.png" style="height:100%;width:auto;cursor:pointer">
+          </div>
+          <div class="col-md-1 col-lg-1 col-xl-1 col-xs-1 col-sm-1" style="height:100%">
+            <img alt="Facebook" src="./img/Facebook-Home-Logo.png" style="height:100%;width:auto;cursor:pointer">
+          </div>
+          <div class="col-md-1 col-lg-1 col-xl-1 col-xs-1 col-sm-1" style="height:100%">
+            <img alt="Twitter" src="./img/twitterbird.png" style="height:100%;width:auto;cursor:pointer">
+          </div>
+        </div>
         <button type="submit">Ingresar</button>
       </form>
     </div>

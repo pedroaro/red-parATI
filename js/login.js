@@ -2,6 +2,11 @@
 $('.toggle').click(function(){
 	// Switches the Icon
 	$(this).children('i').toggleClass('fa-plus');
+	if((document.getElementById("cooltip").innerHTML == "Inicia Sesión")){
+		document.getElementById("cooltip").innerHTML = "¡Regístrate!";
+	}else{
+		document.getElementById("cooltip").innerHTML = "Inicia Sesión";
+	}
 	// Switches the forms  
 	if($('#password').css('display') == 'block'){
 		$('#password').animate({
@@ -37,6 +42,10 @@ $('.cta').click(function(){
 	if(!($('.toggle').children('i').hasClass('fa-plus'))){
 		$('.toggle').children('i').toggleClass('fa-plus');
 	}
+	if((document.getElementById("cooltip").innerHTML == "Inicia Sesión")){
+		document.getElementById("cooltip").innerHTML = "¡Regístrate!";
+	}
+	
   // Switches the forms  
 	if($('#login').css('display') == 'block' || $('#register').css('display') == 'block'){
 		if($('#login').css('display') == 'block'){
