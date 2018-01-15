@@ -152,7 +152,7 @@ h1, h2, h3, h4, h5 {
 	opacity: 0.95;
 }
 
-.navbar-default .navbar-nav li a:focus, .navbar-default .navbar-nav>li>a , .navbar-default .navbar-nav .open .dropdown-menu>li>a,.navbar-default .navbar-brand, .navbar-default .navbar-brand:hover{
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-nav li a:focus, .navbar-default .navbar-nav>li>a , .navbar-default .navbar-nav .open .dropdown-menu>li>a,.navbar-default .navbar-brand, .navbar-default .navbar-brand:hover{
     color: var(--color-primary-light);
 }
 

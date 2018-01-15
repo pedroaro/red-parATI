@@ -23,6 +23,8 @@
     <link href="./css/style.css" rel="stylesheet">
     <link href="./css/perfil.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/bootstrap-datepicker3.css"/>
+    <link href="./css/conf.css" rel="stylesheet">
+
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -67,140 +69,135 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-    <div class="row">
-      <!--Modulo de Perfil-->
-      <div class="col-md-9 col-lg-9 col-xl-9 col-xs-9 col-sm-9">
-        <div id="fh5co-page">
-          <aside id="fh5co-aside" role="complementary">
+    <div id="fh5co-page">
+      <aside id="fh5co-aside" role="complementary">
 
-            <h1 class="fh5co-logo"><a href="perfil.html">
-              <div class="useravatar">
-                  <img alt="" src="./img/avatar.jpg">
-              </div>
-            </a></h1>
-            <nav class="fh5co-main-menu" role="navigation">
-              <ul>
-                <li><a href="perfil.html" class="helvetica">Sam Claflin</a></li>
-                <li><a href="fotos.html" class="helvetica">Fotos</a></li>
-                <li><a href="amigos.html" class="helvetica">Amigos</a></li> 
-                <li><a href="personalizar.html" class="helvetica">Personalizar</a></li> 
-                <li class="fh5co-active"><a href="#" class="helvetica">Configuración</a></li> 
-              </ul>
-            </nav>
-          </aside>
-          <header id="perfil-inf-sup" >
-            <h1 class="fh5co-logo"><a href="perfil.html">
-              <div class="useravatar">
-                  <img alt="" src="./img/avatar.jpg">
-              </div>
-            </a></h1>
-            <nav class="fh5co-main-menu" role="navigation">
-              <ul>
-                <li><a href="perfil.html" class="helvetica">Sam Claflin</a></li>
-                <li><a href="fotos.html" class="helvetica">Fotos</a></li>
-                <li><a href="amigos.html" class="helvetica">Amigos</a></li> 
-                <li><a href="personalizar.html" class="helvetica">Personalizar</a></li> 
-                <li class="fh5co-active"><a href="#" class="helvetica">Configuración</a></li> 
-              </ul>
-            </nav>
-          </header>
-          <div id="fh5co-main">
-            <div class="bloqueBlanco">
-        	  <h3>Notificaciones</h3>
-              <div class="row">
-                <div class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-12">
-                  <h4>Sonido de Notificaciones</h4>
-                </div>
-                <div class="col">
-                  <center>
-	                  <label class="switch" style="margin-top: .5em">
-	                    <input type="checkbox" checked>
-	                    <span class="slider round"></span>
-	                  </label>
-	              </center>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-12">
-                  <h4>Notificarme al correo de las Actualizaciones</h4>
-                </div>
-                <div class="col">
-                  <center>
-	                  <label class="switch" style="margin-top: .5em">
-	                    <input type="checkbox" checked>
-	                    <span class="slider round""></span>
-	                  </label>
-	              </center>
-                </div>
-              </div>
-        	  <h3>Privacidad</h3>
-              <div class="row">
-                <div class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-12">
-                  <h4>Aparecer en los buscadores de Red ParATI</h4>
-                </div>
-                <div class="col">
-                  <center>
-	                  <label class="switch" style="margin-top: .5em">
-	                    <input type="checkbox" >
-	                    <span class="slider round""></span>
-	                  </label>
-	              </center>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-12">
-                  <h4>Hacer mis votos privados</h4>
-                </div>
-                <div class="col">
-                  <center>
-	                  <label class="switch" style="margin-top: .5em">
-	                    <input type="checkbox" >
-	                    <span class="slider round""></span>
-	                  </label>
-	              </center>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-12">
-                  <h4>Recordarles a mis amigos de mi cumpleaños</h4>
-                </div>
-                <div class="col">
-                  <center>
-	                  <label class="switch" style="margin-top: .5em">
-	                    <input type="checkbox" checked>
-	                    <span class="slider round"></span>
-	                  </label>
-	              </center>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-12">
-                  <h4>Quienes pueden ver mi información y preferencias</h4>
-                </div>
-                <div class="col-md-3 col-lg-3 col-xl-3 col-sm-3 col-xs-12">
-                  <select class="form-control" name="privados">
-                    <option value="T">Todos</option>
-                    <option value="A">Amigos</option>
-                    <option value="M">Mejores Amigos</option>
-                    <option value="Y">Solo Yo</option>
-                  </select>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-5 col-lg-5 col-xl-5 col-sm-5 col-xs-12">
-                  <h4>Cambiar Contraseña</h4>
-                </div>
-                <div class="col-md-7 col-lg-7 col-xl-7 col-sm-7 col-xs-12" style="margin-top:.5em;">
-                  <input class="form-control" type="password" placeholder="Actual contraseña" />
-                  <input class="form-control" type="password" placeholder="Nueva contraseña" />
-                  <input class="form-control" type="password" placeholder="Repita la nueva contraseña" />
-                </div>
-              </div>
-              <center style="margin-top: 30px">
-                <a class="btn-round btn-default azul" href="#" >Guardar</a>
-              </center>
+        <h1 class="fh5co-logo"><a href="perfil.html">
+          <div class="useravatar">
+              <img alt="" src="./img/avatar.jpg">
+          </div>
+        </a></h1>
+        <nav class="fh5co-main-menu" role="navigation">
+          <ul>
+            <li><a href="perfil.html" class="helvetica">Sam Claflin</a></li>
+            <li><a href="fotos.html" class="helvetica">Fotos</a></li>
+            <li><a href="amigos.html" class="helvetica">Amigos</a></li> 
+            <li><a href="personalizar.html" class="helvetica">Personalizar</a></li> 
+            <li class="fh5co-active"><a href="#" class="helvetica">Configuración</a></li> 
+          </ul>
+        </nav>
+      </aside>
+      <header id="perfil-inf-sup" >
+        <h1 class="fh5co-logo"><a href="perfil.html">
+          <div class="useravatar">
+              <img alt="" src="./img/avatar.jpg">
+          </div>
+        </a></h1>
+        <nav class="fh5co-main-menu" role="navigation">
+          <ul>
+            <li><a href="perfil.html" class="helvetica">Sam Claflin</a></li>
+            <li><a href="fotos.html" class="helvetica">Fotos</a></li>
+            <li><a href="amigos.html" class="helvetica">Amigos</a></li> 
+            <li><a href="personalizar.html" class="helvetica">Personalizar</a></li> 
+            <li class="fh5co-active"><a href="#" class="helvetica">Configuración</a></li> 
+          </ul>
+        </nav>
+      </header>
+      <div id="fh5co-main">
+        <div class="bloqueBlanco" style="margin-left:-10%">
+        <h3>Notificaciones</h3>
+          <div class="row">
+            <div class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-12">
+              <h4>Sonido de Notificaciones</h4>
+            </div>
+            <div class="col">
+              <center>
+                <label class="switch" style="margin-top: .5em">
+                  <input type="checkbox" checked>
+                  <span class="slider round"></span>
+                </label>
+            </center>
             </div>
           </div>
+          <div class="row">
+            <div class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-12">
+              <h4>Notificarme al correo de las Actualizaciones</h4>
+            </div>
+            <div class="col">
+              <center>
+                <label class="switch" style="margin-top: .5em">
+                  <input type="checkbox" checked>
+                  <span class="slider round"></span>
+                </label>
+            </center>
+            </div>
+          </div>
+        <h3>Privacidad</h3>
+          <div class="row">
+            <div class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-12">
+              <h4>Aparecer en los buscadores de Red ParATI</h4>
+            </div>
+            <div class="col">
+              <center>
+                <label class="switch" style="margin-top: .5em">
+                  <input type="checkbox" >
+                  <span class="slider round"></span>
+                </label>
+            </center>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-12">
+              <h4>Hacer mis votos privados</h4>
+            </div>
+            <div class="col">
+              <center>
+                <label class="switch" style="margin-top: .5em">
+                  <input type="checkbox" >
+                  <span class="slider round"></span>
+                </label>
+            </center>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-12">
+              <h4>Recordarles a mis amigos de mi cumpleaños</h4>
+            </div>
+            <div class="col">
+              <center>
+                <label class="switch" style="margin-top: .5em">
+                  <input type="checkbox" checked>
+                  <span class="slider round"></span>
+                </label>
+            </center>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-12">
+              <h4>Quienes pueden ver mi información y preferencias</h4>
+            </div>
+            <div class="col-md-3 col-lg-3 col-xl-3 col-sm-3 col-xs-12">
+              <select class="form-control" name="privados">
+                <option value="T">Todos</option>
+                <option value="A">Amigos</option>
+                <option value="M">Mejores Amigos</option>
+                <option value="Y">Solo Yo</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8 col-lg-8 col-xl-8 col-sm-8 col-xs-12">
+              <h4>Cambiar Contraseña</h4>
+            </div>
+            <div class="col-md-4 col-lg-4 col-xl-4 col-sm-4 col-xs-12" style="margin-top:.5em;">
+              <input class="form-control" type="password" placeholder="Actual contraseña" />
+              <input class="form-control" type="password" placeholder="Nueva contraseña" />
+              <input class="form-control" type="password" placeholder="Repita la nueva contraseña" />
+            </div>
+          </div>
+          <center style="margin-top: 30px">
+            <a class="btn-round btn-default azul" href="#" >Guardar Cambios</a>
+          </center>
         </div>
       </div>
     </div>
