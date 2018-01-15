@@ -76,7 +76,7 @@ body{
   display: block;
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
-  border-right: 5px solid rgba(0, 0, 0, 0.6);
+  border-right: 5px solid var(--color-primary-color);
 }
 .form-module .form {
   display: none;
