@@ -45,6 +45,7 @@
 	position: fixed;
 	bottom: 0;
 	padding: 0;
+	z-index: 999;
 }
 
 .g4_chat_tab {
@@ -83,6 +84,17 @@
 
 	.g4_close_chat_icon:hover {
 		color: #2196f3;
+	}
+	
+	.g4_chat_style_icon {
+		background-image: url("../img/style-icon.png");
+		background-repeat: no-repeat;
+		background-size: cover;
+		width: 21px;
+		height: 21px;
+		position: absolute;
+		right: 28px;
+		margin-top: 1px;
 	}
 
 .g4_msg_extras {

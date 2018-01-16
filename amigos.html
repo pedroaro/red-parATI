@@ -22,6 +22,7 @@
     <link href="./css/style.css" rel="stylesheet">
     <link href="./css/perfil.css" rel="stylesheet">
     <link href="./css/gallery.css" rel="stylesheet">
+    <link href="./css/sidebar-chat.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -54,6 +55,34 @@
             <li class="active"><a href="#">Perfil</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+		  <li>
+			<form class="navbar-form " action="">
+				<div class="input-group">
+					<input  type="text" class="form-control" placeholder="Buscar amigos" >
+						<div class="input-group-btn">
+							<button class="btn btn-default" type="submit">
+								<i class="glyphicon glyphicon-search"></i>
+							</button>
+						</div>
+				</div>
+			</form>
+			</li>
+			<li class="dropdown">
+                <a href="solicitud_amistad.html" class="dropdown-toggle"  >
+				<i class="glyphicon glyphicon-user"></i><span   class = "label label-primary" > 3</a>
+          
+            </li>
+			
+			<li class="dropdown">
+                <a href="chat.html" class="dropdown-toggle" >
+				<i class="glyphicon glyphicon-envelope"></i><span   class = "label label-primary" > 7</a>
+          
+            </li>
+			<li class="dropdown">
+                <a href="notificaciones.html" class="dropdown-toggle" >
+				<i class="glyphicon glyphicon-bell"></i><span   class = "label label-primary" > 10</a>
+          
+            </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-cog"></i> Configuración<span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -68,7 +97,7 @@
     </nav>
     <div class="row">
       <!--Modulo de Perfil-->
-      <div class="col-md-9 col-lg-9 col-xl-9 col-xs-9 col-sm-9">
+      <div class="col-md-9 col-lg-9 col-xl-9 col-xs-12">
         <div id="fh5co-page">
           <aside id="fh5co-aside" role="complementary">
 
@@ -180,7 +209,146 @@
           </div>
         </div>
       </div>
+      
+      
+      
+      <!--__________________________________INICIO_SIDEBAR_CHAT__________________________________-->
+
+		<div class="col-sm-3 hidden-xs">
+			<div class="row g4_sidechat">
+				<div class="col-sm-12">
+					
+					<!-- Amigos en la lista de contactos lateral -->
+					<div class="row g4_sidebar_friend" data-id="f1">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="./img/AnneHathaway.jpg" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Anne Hathaway</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f2">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="./img/josh-hutcherson.jpg" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Josh Hutcherson</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f3">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="./img/sasha.jpg" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Sasha Lizardi</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f4">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="./img/zac-efron.jpg" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Zac Efron</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f5">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="./img/mark-zuckerberg.jpg" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Mark Zuckerberg</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f6">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="./img/saul-hudson.jpg" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Saul Hudson</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f7">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="./img/arnold-schwarzenegger.jpeg" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Arnold Schwarzenegger</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f8">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="./img/lisa-kudrow.jpeg" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Regina Phalange</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f9">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="./img/david-schwimmer.jpeg" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">David Schwimmer</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f10">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="./img/courteney-cox.jpeg" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Courteney Cox</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f11">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="./img/matt-leblanc.jpeg" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Matt LeBlanc</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f12">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="./img/jennifer-aniston.jpeg" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Jennifer Aniston</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f13">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="./img/matthew-perry.jpeg" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Matthew Perry</p>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<!-- Chat tabs -->
+		<div class="col-xs-9 hidden-xs g4_chat_tab_container"></div>
+		
+		<!--__________________________________FIN_SIDEBAR_CHAT__________________________________-->
+      
+      
     </div>
+    
+    
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -192,5 +360,7 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="./js/ie10-viewport-bug-workaround.js"></script>
   
+	<!-- Script del sidebar chat -->
+	<script src="./js/sidebar-chat.js"></script>
 
 </body></html>
