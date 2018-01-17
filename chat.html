@@ -36,6 +36,7 @@
 
         .card{
             margin: 0;
+            padding-left: 15px !important;
         }
 
         h1{
@@ -53,11 +54,23 @@
             border: solid #333 1px;
             padding: 0px;
         }
-        #modContact{
-            overflow: scroll;
-            height: 83vh;
+
+        .card.hovercard .g4_sidechat_name{
+            text-align: left;
         }
-         #modChat{
+
+        #modContact{
+            overflow: auto;
+            height: 83vh;
+            border: solid #333 1px;
+        }
+
+        #chatWithTiny{
+            height: 3.5em !important;
+            cursor: auto;
+        }
+
+        #modChat{
             background-color: #333;
             height: 83vh;
             border-radius: 10px; 
@@ -75,7 +88,20 @@
             
             padding: 0;
         }
-       
+        @media screen and (max-width: 768px) {
+            .g4_sidebar_friend{
+                padding: 3px;
+            }
+            .g4_thumbnail_container{
+                text-align: center;
+            }
+        }
+
+        .g4_sidebar_friend{
+            width: 100%;
+            margin: 0 0 0 0;
+            padding: 0px;
+        }
 
         #msjs div div{
             padding: 0;
@@ -164,11 +190,7 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-    <div class="container-fluid">
-        <div class="row"> 
-            <div class="col-xs-12 visible-xs" ><p style="margin: 0 auto; font-weight: bold;" >Chat con: Anne Hathaway</p>  </div>  
-        </div>
-    </div>
+
      
     
     <div id="main" class="container-fluid card hovercard">
@@ -177,9 +199,14 @@
             <div class="card-background" style="height:50px;">
                 <img class="" alt="" src="./img/AnneHathaway.jpg">
             </div>
+            <div id="chatWithTiny" class="container-fluid card-info visible-xs">
+                <div class="row"> 
+                    <div class="col-xs-12" ><h1 style="margin: 0 auto; font-weight: bold;" >Chat con: Anne Hathaway</h1>  </div>  
+                </div>
+            </div>
             <!-- /Fondo de color dependiendo de quien hables -->
             <!-- Card-info para que se vea transparente -->
-            <section id="modContact" class="col-xs-2  card-info">
+            <section id="modContact" class="col-xs-2 col-md-2 col-lg-2 col-ms-2 card-info">
                 <div class="row g4_sidebar_friend" data-id="f2">
                     <div class="col-sm-4 g4_thumbnail_container">
                         <img src="./img/AnneHathaway.jpg" class="g4_sidechat_thumbnail">
@@ -190,7 +217,7 @@
                 </div>
 
                 <div class="row g4_sidebar_friend" data-id="f2">
-                    <div class="col-sm-4 g4_thumbnail_container">
+                    <div class="col-xs-12 col-sm-4 g4_thumbnail_container">
                         <img src="./img/josh-hutcherson.jpg" class="g4_sidechat_thumbnail">
                     </div>
                     <div class=" hidden-xs col-sm-8 g4_name_container">
