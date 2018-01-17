@@ -1081,10 +1081,6 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   height: 54px;
   font-size: 18px;
   font-weight: 300;
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  -ms-border-radius: 7px;
-  border-radius: 7px;
 }
 .form-control:active, .form-control:focus {
   outline: none;

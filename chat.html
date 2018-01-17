@@ -20,21 +20,37 @@
 
     <link href="./css/style.css" rel="stylesheet">
     <link href="./css/sidebar-chat.css" rel="stylesheet">
-    
+    <link href="./css/perfil.css" rel="stylesheet">
+
     <script src="./js/ie-emulation-modes-warning.js"></script>
     <style>
+        .card.hovercard .card-info {
+            position: relative;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333 !important;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .card{
+            margin: 0;
+        }
+
+        h1{
+            color: #333 !important;
+        }
         body{
             margin-bottom:0px;
             padding-bottom:0px;
-            background-color: black;
             color: white;  
         }
-
         #main{
            padding: 0;
         }
         #modChat,#modContact,#modInfo{
-            border: solid black 1px;
+            border: solid #333 1px;
             padding: 0px;
         }
         #modContact{
@@ -76,7 +92,7 @@
             height: 40px;
         }
         .globo{
-            background-color: blueviolet;
+            background-color: var(--color-primary-color);
             display: table;
             padding: 10px;
             border-radius: 20px;
@@ -84,7 +100,7 @@
             font-weight: bold;
         }
         .g4_sidechat_name{
-            color: white;
+            color: #333;
         }
 
 
@@ -104,11 +120,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Red parATI</a>
+          <a class="navbar-brand" href="index.html">Red parATI</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Inicio</a></li>
+            <li><a href="index.html">Inicio</a></li>
             <li><a href="./perfil.html">Perfil</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -116,29 +132,25 @@
 			<form class="navbar-form " action="">
 				<div class="input-group">
 					<input  type="text" class="form-control" placeholder="Buscar amigos" >
-						<div class="input-group-btn">
-							<button class="btn btn-default" type="submit">
-								<i class="glyphicon glyphicon-search"></i>
-							</button>
-						</div>
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </div>
 				</div>
 			</form>
 			</li>
 			<li class="dropdown">
                 <a href="solicitud_amistad.html" class="dropdown-toggle"  >
 				<i class="glyphicon glyphicon-user"></i><span   class = "label label-primary" > 3</a>
-          
             </li>
-			
-			<li class="dropdown">
+			<li class="dropdown active">
                 <a href="chat.html" class="dropdown-toggle" >
 				<i class="glyphicon glyphicon-envelope"></i><span   class = "label label-primary" > 7</a>
-          
             </li>
 			<li class="dropdown">
                 <a href="notificaciones.html" class="dropdown-toggle" >
 				<i class="glyphicon glyphicon-bell"></i><span   class = "label label-primary" > 10</a>
-          
             </li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-cog"></i> Configuración<span class="caret"></span></a>
@@ -159,10 +171,15 @@
     </div>
      
     
-    <div id="main" class="container-fluid">
-        <dix class="row">
-            <section id="modContact" class="col-xs-2 ">
-                
+    <div id="main" class="container-fluid card hovercard">
+        <div class="row" style="margin-bottom:50px;">
+            <!--Fondo de color dependiendo de quien hables -->
+            <div class="card-background" style="height:50px;">
+                <img class="" alt="" src="./img/AnneHathaway.jpg">
+            </div>
+            <!-- /Fondo de color dependiendo de quien hables -->
+            <!-- Card-info para que se vea transparente -->
+            <section id="modContact" class="col-xs-2  card-info">
                 <div class="row g4_sidebar_friend" data-id="f2">
                     <div class="col-sm-4 g4_thumbnail_container">
                         <img src="./img/AnneHathaway.jpg" class="g4_sidechat_thumbnail">
@@ -305,7 +322,7 @@
             </section>
             
             <section id="modInfo" class="col-xs-4 hidden-xs">
-                <div class="container-fluid">
+                <div class="container-fluid card-info">
                      <div class="row">
                         <h1 style="color: white">Anne Hathaway</h1>
                     </div>

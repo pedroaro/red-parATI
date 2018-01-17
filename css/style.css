@@ -27,7 +27,7 @@ img {
 }
 
 .form-control{
-    height: auto;font-size: auto;font-weight: auto;border: 1px solid gray; background-color: white;
+    height: 34px;font-size: 14px;font-weight: auto !important;border: 1px solid gray; background-color: white;
 }
 
 h1, h2, h3, h4, h5 {
@@ -41,15 +41,26 @@ h1, h2, h3, h4, h5 {
 .azul {
 	margin-bottom: 1em;
 	background-color: var(--color-primary-color);
-	color: var(--color-primary-light);
-	border: solid 1px #2186f2 ;
+	color: #fff;
+	border: solid 1px var(--color-primary-light) ;
 }
 
 .azul:hover {
 	margin-top: 1em;
-	background-color: #2186f2;
-	color: var(--color-primary-light);
-	border: solid 1px #2186f2 ;
+	background-color: gray;
+	color: #fff;
+	border: solid 1px var(--color-primary-light) ;
+}
+
+.fondo-blur img {
+    -webkit-filter: blur(25px);
+    -moz-filter: blur(25px);
+    -o-filter: blur(25px);
+    -ms-filter: blur(25px);
+    filter: blur(25px);
+    margin-left: -100px;
+    margin-top: -200px;
+    min-width: 130%;
 }
 
 .blanco {
