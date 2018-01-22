@@ -99,7 +99,27 @@
 		<!--Modulo de Inicio y Perfil-->
 		<div class="col-md-9 col-lg-9 col-xl-9 col-xs-12">
 			
-
+			<div id="losPost" class="post">
+            	
+            	<div class="panel-body">
+                	
+                  		<div class="form-group">                    		
+                    		<input id="contenidoComentario" type="text" class="form-control" placeholder="Write on the wall"></input>                    		
+                  		</div>
+                  		<button id='botonPost' class="btn btn-default" onclick="postear2($('#contenidoComentario').val());">Submit</button>                  		
+                  		<div class="pull-right">
+                    		<div class="btn-toolbar">                      			
+                      			<button type="button" id="fotos" class="btn btn-default"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+                    				<div class="hidden-xs">Foto</div>
+                				</button>                      			
+                      			<button type="button" id="fotos" class="btn btn-default"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span>
+                    				<div class="hidden-xs">Video</div>
+                				</button>
+                    		</div>
+                  		</div>
+                	
+            	</div>
+        	</div>
 
 			<!-- ////////////////////////////////////////////// POST ///////////////////////////////////////////////// -->
         <article class="post">
@@ -365,5 +385,16 @@
   
 	<!-- Script del sidebar chat -->
 	<script src="./js/sidebar-chat.js"></script>
+
+	<script>			
+			function postear2(comentario){
+        		var parametros = comentario;        		
+        		$("#losPost").after(" <article class=\"post\"><header><div class=\"meta\"><center><time class=\"published\" datetime=\"2015-11-01\">26 de Diciembre, 2017</time><br><div class=\"useravatar\"><img alt=\"\" src=\"./img/avatar.jpg\"></div><a href=\"#\" class=\"author\"><span class=\"name\">Sam Claflin</span></a></center></div><div class=\"title\"><p> "+parametros+" </p></div></header><footer><ul class=\"stats\"><li><a href=\"#\"><i class=\"glyphicon glyphicon-thumbs-up\"></i>0</a></li><li><a href=\"#\"><i class=\"glyphicon glyphicon-thumbs-down\"></i>0</a></li><li><a href=\"#\"><i class=\"glyphicon glyphicon-comment\"></i>0</a></li></ul></footer></article> ");
+
+
+        		parametros = null;
+        		$("#contenidoComentario").val('');       		
+			}
+		</script>
 
 </body></html>
