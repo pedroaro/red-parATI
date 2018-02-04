@@ -1,0 +1,183 @@
+/* ----------------------------------------- carta de presentacion del usuario -------------------------------------------*/
+ .card {
+    margin-left: 10px;
+    padding: 30px;
+    background-color: rgba(214, 224, 226, 0.2);
+    -webkit-border-top-left-radius:5px;
+    -moz-border-top-left-radius:5px;
+    border-top-left-radius:5px;
+    -webkit-border-top-right-radius:5px;
+    -moz-border-top-right-radius:5px;
+    border-top-right-radius:5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.card.hovercard {
+    position: relative;
+    padding-top: 0;
+    overflow: hidden;
+    text-align: center;
+    background-color: #fff;
+    background-color: rgba(255, 255, 255, 1);
+}
+.card.hovercard .card-background {
+    height: 130px;
+}
+.card-background img {
+    -webkit-filter: blur(25px);
+    -moz-filter: blur(25px);
+    -o-filter: blur(25px);
+    -ms-filter: blur(25px);
+    filter: blur(25px);
+    margin-left: -100px;
+    margin-top: -200px;
+    min-width: 130%;
+}
+.card.hovercard .useravatar {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+}
+
+.card.hovercard .card-info {
+    position: relative;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+}
+.card.hovercard .card-info .card-title {
+    padding:0 5px;
+    font-size: 20px;
+    line-height: 1;
+    color: #262626;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.card.hovercard .card-info .card-description {
+    padding:0 5px;
+    font-size: 10pt;
+    line-height: 1;
+    color: #333;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.card.hovercard .card-info {
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 20px;
+    color: #737373;
+    text-overflow: ellipsis;
+}
+.card.hovercard .bottom {
+    padding: 0 20px;
+    margin-bottom: 17px;
+}
+.btn-pref .btn {
+    -webkit-border-radius:0 !important;
+}
+/* ----------------------------------------- carta de presentacion del usuario -------------------------------------------*/
+/* ----------------------------------------- Skills--------------------------- -------------------------------------------*/
+.job { position: relative; margin-bottom: 1em; padding-bottom: 1em; border-bottom: 1px solid #ccc; font-family: Helvetica, Arial, Sans-Serif; }
+.job .periodo { position: absolute; top: 0.35em; right: 0 ; margin-right: 1em ;font-family: Georgia }
+
+
+
+.barraSkills {
+  width: 100%;
+  background-color: #ddd;
+  margin-bottom: 1em;
+}
+
+.skills {
+  text-align: right;
+  padding-right: 20px;
+  line-height: 40px;
+  color: white;
+}
+
+.relleno {width: 90%; background-color: var(--color-primary-color);}
+/*--------------------------------------------------- Slider ------------------------------------------------------------*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: var(--color-primary-color);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--color-primary-color);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+.palette {
+    cursor: pointer;
+    border: 1px solid #f0f8ff;
+    float: left;
+    margin: 1px;
+    width: 2em;
+    border-radius: 1em;
+    height: 2em;
+}
+
+.coloring {
+    border: 3px solid #fff;
+}
+
+#examplePalette {
+    display: block;
+}
+
+.clear {
+    clear: left;
+}

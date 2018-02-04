@@ -1,0 +1,69 @@
+{% extends "link_base.html" %}
+{% block custom_links %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block content %}
+<body> 
+  <!-- Form Mixin-->
+  <!-- Input Mixin-->
+  <!-- Button Mixin-->
+  <!-- Pen Title-->
+  <div class="pen-title">
+    <h1>Red parATI</h1>
+  </div>
+  <!-- Form Module-->
+  <div class="module form-module">
+    <div class="toggle"><i class="fa fa-times fa-plus"></i>
+      <div class="cooltip" id="cooltip">¡Regístrate!</div>
+    </div>
+    <div class="form" id="login">
+      <h2>Inicio de Sesión</h2>
+      <form action="index">
+        <input type="text" placeholder="Usuario o Correo"/>
+        <input type="password" placeholder="Contraseña"/>
+        <button type="submit">Ingresar</button>
+        <div class="row" style="margin-top: 2em; height: 2em;">
+          <div class="col-md-5 col-lg-5 col-xl-5 col-xs-5 col-sm-5 tiny" style="height:100%;">O ingresa con</div>
+          <div class="col-md-3 col-lg-3 col-xl-3 col-xs-3 col-sm-3" style="height:100%"></div>
+          <div class="col-md-1 col-lg-1 col-xl-1 col-xs-1 col-sm-1" style="height:100%">
+            <img alt="Google" src="{{ url_for('static', filename='img/Google_circle.svg.png') }}" style="height:100%;width:auto;cursor:pointer">
+          </div>
+          <div class="col-md-1 col-lg-1 col-xl-1 col-xs-1 col-sm-1" style="height:100%">
+            <img alt="Facebook" src="{{ url_for('static', filename='img/Facebook-Home-Logo.png') }}" style="height:100%;width:auto;cursor:pointer">
+          </div>
+          <div class="col-md-1 col-lg-1 col-xl-1 col-xs-1 col-sm-1" style="height:100%">
+            <img alt="Twitter" src="{{ url_for('static', filename='img/twitterbird.png') }}" style="height:100%;width:auto;cursor:pointer">
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="form" id="password">
+      <h2>¿Olvidaste tu contraseña?</h2>
+      <h5>No te preocupes, solo ingresa tu correo y te enviaremos tu nueva clave</h5>
+      <form>
+        <input type="email" placeholder="Correo Electronico"/>
+        <button>Enviar Contraseña</button>
+      </form>
+    </div>
+    <div class="form" id="register">
+      <h2>¡Crea tu Cuenta!</h2>
+      <form action="login" method="post">
+        <input type="text" placeholder="Usuario" name="usuario_reg"/>
+        <input type="text" placeholder="Nombre" name="nombre_reg"/>
+        <input type="email" placeholder="Correo Electrónico" name="correo_reg"/>
+        <input type="password" placeholder="Contraseña" name="password_reg"/>
+        <button type="submit">Regístrate</button>
+      </form>
+    </div>
+    <div class="cta"><a>¿Olvidaste tu contraseña?</a></div>
+  </div>
+</body>
+{% endblock %}
+{% block scripts %}
+  <!-- scripts -->
+  <script src=" {{ url_for('static', filename='js/jquery.min.js') }} "></script>
+  <script src=" {{ url_for('static', filename='js/login.js') }} "></script>
+{% endblock %}
+

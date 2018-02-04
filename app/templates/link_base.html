@@ -1,0 +1,17 @@
+    {% extends "meta_base.html" %}
+    
+    {% block link_base_next %}
+    <!-- html base 2 (links comunes) -->
+    <link rel="icon" href="https://getbootstrap.com/docs/3.3/favicon.ico">
+    
+    <!-- Bootstrap core CSS -->
+    <link href=" {{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href=" {{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href=" {{ url_for('static', filename='css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
+    <!-- fin html base 2 -->
+    {% endblock %}
+
+
+

@@ -1,0 +1,148 @@
+body{
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url("../img/ucv.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Pen Title */
+.pen-title {
+  padding: 50px 0;
+  text-align: center;
+  letter-spacing: 2px;
+}
+.pen-title h1 {
+  font-size: 4em;
+  font-weight: 2em;
+  color: white;
+}
+.pen-title span {
+  font-size: 12px;
+}
+.pen-title span .fa {
+  color: var(--color-primary-color);
+}
+.pen-title span a {
+  color: var(--color-primary-color);
+  font-weight: 2em;
+  text-decoration: none;
+}
+
+.tiny {
+  font-size: .7em;
+}
+
+/* Form Module */
+.form-module {
+  margin: 2em;
+  position: relative;
+  background: var(--color-primary-light);
+  max-width: 320px;
+  width: 100%;
+  border-top: 5px solid var(--color-primary-color);
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+}
+.form-module .toggle {
+  cursor: pointer;
+  position: absolute;
+  top: -0;
+  right: -0;
+  background: var(--color-primary-color);
+  width: 30px;
+  height: 30px;
+  margin: -5px 0 0;
+  color:  var(--color-primary-light);
+  font-size: 12px;
+  line-height: 30px;
+  text-align: center;
+}
+.form-module .toggle .cooltip {
+  position: absolute;
+  top: 5px;
+  margin-left: 2.5em;
+  display: block;
+  background: var(--color-primary-color);
+  width: auto;
+  padding: 5px;
+  font-size: 15px;
+  line-height: 1;
+}
+.form-module .toggle .cooltip:before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: -5px;
+  display: block;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid var(--color-primary-color);
+}
+.form-module .form {
+  display: none;
+  padding: 40px;
+}
+.form-module .form:nth-child(2) {
+  display: block;
+}
+.form-module h2 {
+  margin: 0 0 20px;
+  color: var(--color-primary-color);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.form-module h5 {
+  margin: 0 0 20px;
+  color: var(--color-primary-dark);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.form-module input {
+  outline: none;
+  display: block;
+  width: 100%;
+  border: 1px solid #d9d9d9;
+  margin: 0 0 20px;
+  padding: 10px 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-weight: 400;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.form-module input:focus {
+  border: 1px solid var(--color-primary-color);
+  color:  var(--color-primary-dark);
+}
+.form-module button {
+  cursor: pointer;
+  background: var(--color-primary-color);
+  width: 100%;
+  border: 0;
+  padding: 10px 15px;
+  color:  var(--color-primary-light);
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+.form-module button:hover {
+  background: #178ab4;
+}
+
+.form-module .cta {
+  background: var(--color-primary-dark);
+  width: 100%;
+  padding: 15px 40px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: var(--color-primary-light);
+  font-size: 12px;
+  cursor: pointer;
+  text-align: center;
+}
+.form-module .cta a {
+  color:  var(--color-primary-light);
+  text-decoration: none;
+}
