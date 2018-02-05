@@ -3,19 +3,19 @@ from pymongo import *
 from app import app_flask
 from bson.json_util import dumps
 
-#Hace falta realizar la logica de obtener los datos del formulario
-#y permitir el acceso a index desde login, también la de registro.
-#En general, hace falta toda la logica de analisis de datos y la
-#parte de la base de datos.
-
 #Conexión a MongoDB usando PyMongo
 client = MongoClient()
 db = client.redparATI_db
 
-@app_flask.route('/')
-def login():
-	# Primera pantalla que se muestra al ingresar a la página -> Login del usuario
-    return render_template("login.html")
+#Verificador de sesión global
+sesion_state = 1
+
+# Desvio de Cierre de Sesión
+@app_flask.route("/loginOut")
+def loginOut():
+	global sesion_state
+	sesion_state = 1
+	return render_template("login.html")
 
 @app_flask.route('/login', methods=['POST'])
 def login_after_register():
@@ -47,33 +47,138 @@ def login_after_register():
 
 @app_flask.route('/index', methods=['POST'])
 def index():
-	# Verificación de los datos ingresados en login
-	# Tomo los valores suministrados en el login y procedemos a hacer las verificaciones para permitir o no el acceso
-	usuario_email = request.form['usu_mail_login']
-	password = request.form['password_login']
+	# Se solicita el verificador de sesión para su modificación
+	global sesion_state
 
-	# Buscamos alguna similitud en base de datos, con user_name o correo
-	query_existe1 = db.Usuario.find_one( { "user_name": usuario_email } )
-	cant1 = db.Usuario.find( { "user_name": usuario_email } ).count()
-	query_existe2 = db.Usuario.find_one( { "email": usuario_email } )
-	cant2 = db.Usuario.find( { "email": usuario_email } ).count()
+	if sesion_state == 1:
+		#Se cambia el estado de la sesión.
+		
+		sesion_state = 0
 
-	# Si no se consigue ningún usuario, sea por user_name o por email
-	if cant1 < 1 and cant2 < 1:
-		return "El usuario o e-mail suministrado no es correcto. Intente nuevamente."
-	else:
-		# Si se encuentra una coincidencia por user_name, se verifica si la contraseña coincide con los datos en BD
-		if cant1 >= 1:
-			if query_existe1['password'] == password:
-				return render_template("index.html")
-			else:
-				return "La contraseña es incorrecta. Intente nuevamente."
+		# Verificación de los datos ingresados en login
+		# Tomo los valores suministrados en el login y procedemos a hacer las verificaciones para permitir o no el acceso
+		usuario_email = request.form['usu_mail_login']
+		password = request.form['password_login']
+
+		# Buscamos alguna similitud en base de datos, con user_name o correo
+		query_existe1 = db.Usuario.find_one( { "user_name": usuario_email } )
+		cant1 = db.Usuario.find( { "user_name": usuario_email } ).count()
+		query_existe2 = db.Usuario.find_one( { "email": usuario_email } )
+		cant2 = db.Usuario.find( { "email": usuario_email } ).count()
+
+		# Si no se consigue ningún usuario, sea por user_name o por email
+		if cant1 < 1 and cant2 < 1:
+			return "El usuario o e-mail suministrado no es correcto. Intente nuevamente."
 		else:
-			# Si se encuentra una coincidencia por correo, se verifica si la contraseña coincide con los datos en BD
-			if cant2 >= 1:
-				if query_existe2['password'] == password:
+			# Si se encuentra una coincidencia por user_name, se verifica si la contraseña coincide con los datos en BD
+			if cant1 >= 1:
+				if query_existe1['password'] == password:
 					return render_template("index.html")
 				else:
 					return "La contraseña es incorrecta. Intente nuevamente."
 			else:
-				return "La contraseña es incorrecta. Intente nuevamente."
+				# Si se encuentra una coincidencia por correo, se verifica si la contraseña coincide con los datos en BD
+				if cant2 >= 1:
+					if query_existe2['password'] == password:
+						
+						return render_template("index.html")
+					else:
+						return "La contraseña es incorrecta. Intente nuevamente."
+				else:
+					return "La contraseña es incorrecta. Intente nuevamente."
+	else:
+		#En caso de sesión ya iniciada, se permite ir al index
+		return render_template("index.html")
+
+# FUNCIONES DE VERIFICACIÓN DE SESIÓN
+@app_flask.route("/login")
+def login_prepost():
+	if sesion_state == 1:
+		return render_template("login.html")
+	else:
+		return render_template("index.html")
+
+@app_flask.route('/')
+def login():
+	# Primera pantalla que se muestra al ingresar a la página -> Login del usuario
+	# Se verifica la sesión
+	if sesion_state == 1:
+		return render_template("login.html")
+	else:
+		return render_template("index.html")
+
+# Pantalla principal al iniciar sesión
+@app_flask.route("/index")
+def post_index():
+	if sesion_state == 1:
+		return render_template("login.html")
+	else:
+		return render_template("index.html")
+
+# Perfil de Usuario
+@app_flask.route("/perfil")
+def perfil():
+	if sesion_state == 1:
+		return render_template("login.html")
+	else:
+		return render_template("perfil.html")
+
+# Solicitudes y lista de amigos
+@app_flask.route("/amigos")
+def amigos():
+	if sesion_state == 1:
+		return render_template("login.html")
+	else:
+		return render_template("amigos.html")
+
+# Página de búsqueda de amigos
+@app_flask.route("/buscar")
+def buscar():
+	if sesion_state == 1:
+		return render_template("login.html")
+	else:
+		return render_template("buscar.html")
+
+@app_flask.route("/chat")
+def chat():
+	if sesion_state == 1:
+		return render_template("login.html")
+	else:
+		return render_template("chat.html")
+
+@app_flask.route("/configuracion")
+def config():
+	if sesion_state == 1:
+		return render_template("login.html")
+	else:
+		return render_template("configuracion.html")
+
+@app_flask.route("/fotos")
+def fotos():
+	if sesion_state == 1:
+		return render_template("login.html")
+	else:
+		return render_template("fotos.html")
+
+@app_flask.route("/notificaciones")
+def notify():
+	if sesion_state == 1:
+		return render_template("login.html")
+	else:
+		return render_template("notificaciones.html")
+
+@app_flask.route("/personalizar")
+def customize():
+	if sesion_state == 1:
+		return render_template("login.html")
+	else:
+		return render_template("personalizar.html")
+
+@app_flask.route("/solicitud_amistad")
+def friend_req():
+	if sesion_state == 1:
+		return render_template("login.html")
+	else:
+		return render_template("solicitud_amistad.html")
+
+#{{ url_for('static', filename='js/

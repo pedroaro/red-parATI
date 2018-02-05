@@ -16,8 +16,12 @@
     {% block custom_links %}{% endblock %}
     
 </head>
-	<!-- contenido -->
+    <!-- contenido -->
+    {% if var_login %}
+        {% block menu %}{% endblock %}
+    {% endif %}
     {% block content %}{% endblock %}
-
     {% block scripts %}{% endblock %}
+    
+    
 </html>

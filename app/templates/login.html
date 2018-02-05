@@ -1,11 +1,11 @@
 {% extends "link_base.html" %}
+{% set var_login = False %}
 {% block custom_links %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 {% endblock %}
-
+<body>
 {% block content %}
-<body> 
   <!-- Form Mixin-->
   <!-- Input Mixin-->
   <!-- Button Mixin-->
@@ -59,8 +59,8 @@
     </div>
     <div class="cta"><a>¿Olvidaste tu contraseña?</a></div>
   </div>
-</body>
 {% endblock %}
+</body>
 {% block scripts %}
   <!-- scripts -->
   <script src=" {{ url_for('static', filename='js/jquery.min.js') }} "></script>

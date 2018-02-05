@@ -1,0 +1,310 @@
+{% extends "link_base.html" %}
+{% set var_login = True %}
+{% block custom_links %}
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/sidebar-chat.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/notificaciones.css') }}">
+{% endblock %}
+{% block content %}
+  <body>
+
+	<div class="container-fluid">
+	<div class="row">
+		<!--Modulo de Inicio y Perfil-->
+		<div class="col-md-9 col-lg-9 col-xl-9 col-xs-12 col-sm-9">
+			<!-- ////////////////////////////////////////////// POST ///////////////////////////////////////////////// -->
+		<article class="postnotificacion2">
+				<h2>
+					Tus notificaciones
+				</h2>
+		</article>
+         <article class="postnotificacion2">
+         	<a href="#">
+          <header>
+            <div class="meta">
+              <center>
+              <div class="useravatar">
+                  <img alt="" src="{{ url_for('static', filename='img/jennifer-aniston.jpeg') }}">
+              </div> 
+              </center>
+            </div>
+            <div class="title">
+              <p> <span class="name">Jennifer Aniston</span> ha comentado tu publicación. </p>
+              <time class="published" datetime="2015-11-01"> <i class="fa fa-comment" aria-hidden="true"></i> 26 de Diciembre, 2017 a las 20:00</time>
+            </div>
+          </header>
+           </a>         
+        </article>
+       <article class="postnotificacion2">
+         	<a href="#">
+          <header>
+            <div class="meta">
+              <center>
+              <div class="useravatar">
+                  <img alt="" src="{{ url_for('static', filename='img/zac-efron.jpg') }}">
+              </div> 
+              </center>
+            </div>
+            <div class="title">
+              <p> <span class="name">Zac Efron</span> ha comentado tu publicación. </p>
+              <time class="published" datetime="2015-11-01"> <i class="fa fa-comment" aria-hidden="true"></i> 26 de Diciembre, 2017 a las 20:00</time>
+            </div>
+          </header>
+           </a>         
+        </article>
+        <article class="postnotificacion2">
+         	<a href="#">
+          <header>
+            <div class="meta">
+              <center>
+              <div class="useravatar">
+                  <img alt="" src="{{ url_for('static', filename='img/matt-leblanc.jpeg') }}">
+              </div> 
+              </center>
+            </div>
+            <div class="title">
+              <p> <span class="name">Matt Leblanc</span> ha comentado tu publicación. </p>
+              <time class="published" datetime="2015-11-01"> <i class="fa fa-comment" aria-hidden="true"></i> 26 de Diciembre, 2017 a las 20:00</time>
+            </div>
+          </header>
+           </a>         
+        </article>
+        <article class="postnotificacion2">
+         	<a href="#">
+          <header>
+            <div class="meta">
+              <center>
+              <div class="useravatar">
+                  <img alt="" src="{{ url_for('static', filename='img/matt-leblanc.jpeg') }}">
+              </div> 
+              </center>
+            </div>
+            <div class="title">
+              <p> <span class="name">Matt Leblanc</span> ha comentado tu publicación. </p>
+              <time class="published" datetime="2015-11-01"> <i class="fa fa-comment" aria-hidden="true"></i> 26 de Diciembre, 2017 a las 20:00</time>
+            </div>
+          </header>
+           </a>         
+        </article>
+        <article class="postnotificacion2">
+         	<a href="#">
+          <header>
+            <div class="meta">
+              <center>
+              <div class="useravatar">
+                  <img alt="" src="{{ url_for('static', filename='img/zac-efron.jpg') }}">
+              </div> 
+              </center>
+            </div>
+            <div class="title">
+              <p> <span class="name">Zac Efron</span> ha comentado tu publicación. </p>
+              <time class="published" datetime="2015-11-01"> <i class="fa fa-comment" aria-hidden="true"></i> 26 de Diciembre, 2017 a las 20:00</time>
+            </div>
+          </header>
+           </a>         
+        </article>
+        <article class="postnotificacion2">
+         	<a href="#">
+          <header>
+            <div class="meta">
+              <center>
+              <div class="useravatar">
+                  <img alt="" src="{{ url_for('static', filename='img/AnneHathaway.jpg') }}">
+              </div> 
+              </center>
+            </div>
+            <div class="title">
+              <p> <span class="name">Anne Hathaway</span> te ha etiquetado en una publicación. </p>
+              <time class="published" datetime="2015-11-01"> <i class="fa fa-hashtag" aria-hidden="true"></i> 26 de Diciembre, 2017 a las 20:00</time>
+            </div>
+          </header>
+           </a>         
+        </article>
+        <article class="postnotificacion2">
+         	<a href="#">
+          <header>
+            <div class="meta">
+              <center>
+              <div class="useravatar">
+                  <img alt="" src="{{ url_for('static', filename='img/AnneHathaway.jpg') }}">
+              </div> 
+              </center>
+            </div>
+            <div class="title">
+              <p> <span class="name">Anne Hathaway</span> ha comentado tu publicación. </p>
+              <time class="published" datetime="2015-11-01"> <i class="fa fa-comment" aria-hidden="true"></i> 26 de Diciembre, 2017 a las 20:00</time>
+            </div>
+          </header>
+           </a>         
+        </article>
+        <article class="postnotificacion2">
+          <header>
+            <div class="title">
+             <a style="float: left;" class="btn btn-primary">previous</a>
+             <a style="float: right;" class="btn btn-primary">next</a>
+            </div>
+          </header>       
+        </article>
+        
+        <!-- ////////////////////////////////////////////// /POST ///////////////////////////////////////////////// -->
+        <!-- ////////////////////////////////////////////// POST ///////////////////////////////////////////////// -->
+        
+        <!-- ////////////////////////////////////////////// /POST ///////////////////////////////////////////////// -->
+	         <!-- ////////////////////////////////////////////// POST ///////////////////////////////////////////////// -->
+	       
+
+		</div>
+
+		<!--__________________________________INICIO_SIDEBAR_CHAT__________________________________-->
+
+		<div class="col-sm-3 hidden-xs">
+			<div class="row g4_sidechat">
+				<div class="col-sm-12">
+					
+					<!-- Amigos en la lista de contactos lateral -->
+					<div class="row g4_sidebar_friend" data-id="f1">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/AnneHathaway.jpg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Anne Hathaway</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f2">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/josh-hutcherson.jpg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Josh Hutcherson</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f3">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/sasha.jpg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Sasha Lizardi</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f4">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/zac-efron.jpg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Zac Efron</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f5">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/mark-zuckerberg.jpg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Mark Zuckerberg</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f6">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/saul-hudson.jpg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Saul Hudson</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f7">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/arnold-schwarzenegger.jpeg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Arnold Schwarzenegger</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f8">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/lisa-kudrow.jpeg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Regina Phalange</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f9">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/david-schwimmer.jpeg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">David Schwimmer</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f10">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/courteney-cox.jpeg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Courteney Cox</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f11">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/matt-leblanc.jpeg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Matt LeBlanc</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f12">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/jennifer-aniston.jpeg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Jennifer Aniston</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f13">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/matthew-perry.jpeg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Matthew Perry</p>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<!-- Chat tabs -->
+		<div class="col-xs-9 hidden-xs g4_chat_tab_container"></div>
+		
+		<!--__________________________________FIN_SIDEBAR_CHAT__________________________________-->
+		
+	</div>
+	</div>
+</body>
+{% endblock %}
+
+{% block scripts %}
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{{ url_for('static', filename='js/ie10-viewport-bug-workaround.js') }}"></script>
+  
+	<!-- Script del sidebar chat -->
+  <script src="{{ url_for('static', filename='js/sidebar-chat.js') }}"></script>
+{% endblock %}
+
+

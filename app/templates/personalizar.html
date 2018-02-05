@@ -1,0 +1,188 @@
+{% extends "link_base.html" %}
+{% set var_login = True %}
+{% block custom_links %}
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/gallery.css') }}" rel="stylesheet">
+
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/perfil.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-datepicker3.css') }}"/>
+    <link href="{{ url_for('static', filename='css/conf.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+  <body>
+    <div id="fh5co-page">
+      <aside id="fh5co-aside" role="complementary">
+
+        <h1 class="fh5co-logo"><a href="perfil">
+          <div class="useravatar">
+              <img alt="" src="{{ url_for('static', filename='img/avatar.jpg') }}">
+          </div>
+        </a></h1>
+        <nav class="fh5co-main-menu" role="navigation">
+          <ul>
+            <li><a href="perfil" class="helvetica">Sam Claflin</a></li>
+            <li><a href="fotos" class="helvetica">Fotos</a></li>
+            <li><a href="amigos" class="helvetica">Amigos</a></li> 
+            <li class="fh5co-active"><a href="#" class="helvetica">Personalizar</a></li>
+            <li><a href="configuracion" class="helvetica">Configuración</a></li> 
+          </ul>
+        </nav>
+      </aside>
+      <header id="perfil-inf-sup" >
+        <h1 class="fh5co-logo"><a href="perfil">
+          <div class="useravatar">
+              <img alt="" src="{{ url_for('static', filename='img/avatar.jpg') }}">
+          </div>
+        </a></h1>
+        <nav class="fh5co-main-menu" role="navigation">
+          <ul>
+            <li><a href="perfil" class="helvetica">Sam Claflin</a></li>
+            <li><a href="fotos" class="helvetica">Fotos</a></li>
+            <li><a href="amigos" class="helvetica">Amigos</a></li> 
+            <li class="fh5co-active"><a href="#" class="helvetica">Personalizar</a></li>  
+            <li><a href="configuracion" class="helvetica">Configuración</a></li>                    
+          </ul>
+        </nav>
+      </header>
+      <div id="fh5co-main">
+        <div class="bloqueBlanco" style="margin-left:-10%">
+          <div class="row">
+            <div class="col-md-5 col-lg-5 col-xl-5 col-sm-5 col-xs-5">
+              <h3>Modo Nocturno</h3>
+            </div>
+            <div class="col">
+              <label class="switch" style="margin-top: 1.5em; margin-left:1em">
+                <input type="checkbox" >
+                <span class="slider round" onclick="ModoNocturno()"></span>
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5 col-lg-5 col-xl-5 col-sm-5 col-xs-12">
+              <h3>Elige tu Color</h3>
+            </div>
+            <div class="col-md-7 col-lg-7 col-xl-7 col-sm-7 col-xs-12">
+                <div id="examplePalette" style="padding-top: 1.5em;"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5 col-lg-5 col-xl-5 col-sm-5 col-xs-12">
+              <h4>Nombres</h4>
+            </div>
+            <div class="col-md-7 col-lg-7 col-xl-7 col-sm-7 col-xs-12" style="margin-top:.5em;">
+              <input class="form-control" type="text" value="Sam" placeholder="Sam" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5 col-lg-5 col-xl-5 col-sm-5 col-xs-12">
+              <h4>Apellidos</h4>
+            </div>
+            <div class="col-md-7 col-lg-7 col-xl-7 col-sm-7 col-xs-12" style="margin-top:.5em;">
+              <input class="form-control" type="text" value="Claflin" placeholder="Claflin"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5 col-lg-5 col-xl-5 col-sm-5 col-xs-12">
+              <h4>Descripción</h4>
+            </div>
+            <div class="col-md-7 col-lg-7 col-xl-7 col-sm-7 col-xs-12" style="margin-top:.5em;">
+              <textarea rows="10" class="form-control" placeholder="Di algo de ti!">Sam Claflin es un actor británico que interpreta el papel de Finnick Odair en la película de Los Juegos del Hambre: En Llamas y Los Juegos del Hambre: Sinsajo Partes 1 y 2. Finnick Odair fue un vencedor del Distrito 4. Finnick ganó los 65º Juegos del Hambre y sobrevivió los 75º Juegos del Hambre, que eran una edición especial por corresponder al Vasallaje de los Veinticinco, celebrado cada 25 años.</textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5 col-lg-5 col-xl-5 col-sm-5 col-xs-12">
+              <h4>Libros Favoritos</h4>
+            </div>
+            <div class="col-md-7 col-lg-7 col-xl-7 col-sm-7 col-xs-12" style="margin-top:.5em;">
+              <textarea rows="3" class="form-control" placeholder="Separalos con una ','"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5 col-lg-5 col-xl-5 col-sm-5 col-xs-12">
+              <h4>Géneros de Música Favoritos</h4>
+            </div>
+            <div class="col-md-7 col-lg-7 col-xl-7 col-sm-7 col-xs-12" style="margin-top:.5em;">
+              <textarea rows="3" class="form-control" placeholder="Separalos con una ','"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-5 col-lg-5 col-xl-5 col-sm-5 col-xs-12">
+              <h4>Videojuegos Favoritos</h4>
+            </div>
+            <div class="col-md-7 col-lg-7 col-xl-7 col-sm-7 col-xs-12" style="margin-top:.5em;">
+              <textarea rows="3" class="form-control" placeholder="Separalos con una ','"></textarea>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-5 col-lg-5 col-xl-5 col-sm-5 col-xs-12" style="margin-top:.5em;">
+              <h4>Fecha de Nacimiento</h4>
+            </div>
+            <div class="col-md-7 col-lg-7 col-xl-7 col-sm-7 col-xs-12" style="margin-left:-1em;margin-top:1em ;">
+              <div class="form-group ">
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <div class="input-group-addon">
+                      <i class="fa fa-calendar">
+                      </i>
+                    </div>
+                    <input class="form-control" id="date" name="date" placeholder="MM/DD/AAAA" type="text"/>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 col-lg-5 col-xl-5 col-sm-5 col-xs-12">
+                <h4>Telefono</h4>
+              </div>
+              <div class="col-md-7 col-lg-7 col-xl-7 col-sm-7 col-xs-12" style="margin-top:.5em;">
+                <input class="form-control" type="number" placeholder="Numero de Tlf" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 col-lg-5 col-xl-5 col-sm-5 col-xs-12">
+                <h4>Género</h4>
+              </div>
+              <div class="col-md-7 col-lg-7 col-xl-7 col-sm-7 col-xs-12" style="margin-top:.5em;">
+                <select class="form-control" name="genero">
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                    <option value="O">Otro</option>
+                  </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-5 col-lg-5 col-xl-5 col-sm-5 col-xs-12">
+                <h4>Correo Electronico</h4>
+              </div>
+              <div class="col-md-7 col-lg-7 col-xl-7 col-sm-7 col-xs-12" style="margin-top:.5em;">
+                <input class="form-control" type="email" placeholder="ejemplo@hola.es" />
+              </div>
+            </div>
+            <center style="margin-top: 30px">
+              <a class="btn-round btn-default azul" href="#" >Guardar Cambios</a>
+            </center>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+
+{% endblock %}
+
+{% block scripts %}
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-ui.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{{ url_for('static', filename='js/ie10-viewport-bug-workaround.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/palette.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/perfil.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap-datepicker.min.js') }}"></script>
+{% endblock %}
