@@ -13,8 +13,13 @@ Control de versiones dered-parATI
     MONGO (en otra terminal):
         Instalar mongo:
             https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+            
+        Activar mongo (en otra terminal):
+            mongod
+            NO CERRAR
 
-        Configurar mongo:
+        Configurar mongo (en otra terminal):
+            mongo
             use redparATI_db
             db.createCollection("Usuario", { capped: false })
             NO CERRAR
