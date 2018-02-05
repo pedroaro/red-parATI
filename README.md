@@ -10,7 +10,7 @@ Control de versiones dered-parATI
         2.- Pymongo (debería de estar ya) (paquete: pymongo)
         3.- MongoDB (debe ser instalado y configurado en la PC)
 
-    MONGO (en otra terminal):
+    MONGO:
         Instalar mongo:
             https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
             
