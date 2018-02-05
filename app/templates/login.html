@@ -20,9 +20,9 @@
     </div>
     <div class="form" id="login">
       <h2>Inicio de Sesión</h2>
-      <form action="index">
-        <input type="text" placeholder="Usuario o Correo"/>
-        <input type="password" placeholder="Contraseña"/>
+      <form action="index" method="post">
+        <input type="text" placeholder="Usuario o Correo" name="usu_mail_login" required/>
+        <input type="password" placeholder="Contraseña" name="password_login" required/>
         <button type="submit">Ingresar</button>
         <div class="row" style="margin-top: 2em; height: 2em;">
           <div class="col-md-5 col-lg-5 col-xl-5 col-xs-5 col-sm-5 tiny" style="height:100%;">O ingresa con</div>
@@ -50,10 +50,10 @@
     <div class="form" id="register">
       <h2>¡Crea tu Cuenta!</h2>
       <form action="login" method="post">
-        <input type="text" placeholder="Usuario" name="usuario_reg"/>
-        <input type="text" placeholder="Nombre" name="nombre_reg"/>
-        <input type="email" placeholder="Correo Electrónico" name="correo_reg"/>
-        <input type="password" placeholder="Contraseña" name="password_reg"/>
+        <input type="text" placeholder="Usuario" name="usuario_reg" required/>
+        <input type="text" placeholder="Nombre" name="nombre_reg" required/>
+        <input type="email" placeholder="Correo Electrónico" name="correo_reg" required/>
+        <input type="password" placeholder="Contraseña" name="password_reg" required/>
         <button type="submit">Regístrate</button>
       </form>
     </div>

@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from pymongo import *
 from app import app_flask
+from bson.json_util import dumps
 
 #Hace falta realizar la logica de obtener los datos del formulario
 #y permitir el acceso a index desde login, también la de registro.
@@ -13,7 +14,7 @@ db = client.redparATI_db
 
 @app_flask.route('/')
 def login():
-	# Primera pantalla que se muestra al ingresar a la página
+	# Primera pantalla que se muestra al ingresar a la página -> Login del usuario
     return render_template("login.html")
 
 @app_flask.route('/login', methods=['POST'])
@@ -44,6 +45,35 @@ def login_after_register():
 			# Regresamos a la pantalla de login
 			return render_template("login.html")
 
-@app_flask.route('/index')
+@app_flask.route('/index', methods=['POST'])
 def index():
-	return render_template("index.html")
+	# Verificación de los datos ingresados en login
+	# Tomo los valores suministrados en el login y procedemos a hacer las verificaciones para permitir o no el acceso
+	usuario_email = request.form['usu_mail_login']
+	password = request.form['password_login']
+
+	# Buscamos alguna similitud en base de datos, con user_name o correo
+	query_existe1 = db.Usuario.find_one( { "user_name": usuario_email } )
+	cant1 = db.Usuario.find( { "user_name": usuario_email } ).count()
+	query_existe2 = db.Usuario.find_one( { "email": usuario_email } )
+	cant2 = db.Usuario.find( { "email": usuario_email } ).count()
+
+	# Si no se consigue ningún usuario, sea por user_name o por email
+	if cant1 < 1 and cant2 < 1:
+		return "El usuario o e-mail suministrado no es correcto. Intente nuevamente."
+	else:
+		# Si se encuentra una coincidencia por user_name, se verifica si la contraseña coincide con los datos en BD
+		if cant1 >= 1:
+			if query_existe1['password'] == password:
+				return render_template("index.html")
+			else:
+				return "La contraseña es incorrecta. Intente nuevamente."
+		else:
+			# Si se encuentra una coincidencia por correo, se verifica si la contraseña coincide con los datos en BD
+			if cant2 >= 1:
+				if query_existe2['password'] == password:
+					return render_template("index.html")
+				else:
+					return "La contraseña es incorrecta. Intente nuevamente."
+			else:
+				return "La contraseña es incorrecta. Intente nuevamente."
