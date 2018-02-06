@@ -6,10 +6,11 @@ from bson.json_util import dumps
 #Conexión a MongoDB usando PyMongo
 client = MongoClient()
 db = client.redparATI_db
+users = db.Usuario
 
 #Verificador de sesión global
 sesion_state = 1
-
+usuario_email = ""
 # Desvio de Cierre de Sesión
 @app_flask.route("/loginOut")
 def loginOut():
@@ -26,27 +27,28 @@ def login_after_register():
 	password = request.form['password_reg']
 
 	# Buscamos alguna similitud en base de datos, con user_name
-	query_existe = db.Usuario.find( { "user_name": usuario } ).count()
+	query_existe = users.find( { "user_name": usuario } ).count()
 
 	# Si query_existe >= 1, quiere decir que ya hay un usuario con el mismo user_name
 	if query_existe >= 1:
 		return "Ya existe un usuario registrado con el nombre de usuario o correo suministrado, intente nuevamente."
 	else:
 		# Buscamos alguna similitud en base de datos, con email
-		query_existe = db.Usuario.find( { "email": correo } ).count()
+		query_existe = users.find( { "email": correo } ).count()
 
 		# Si query_existe >= 1, quiere decir que ya hay un usuario con el mismo email
 		if query_existe >= 1:
 			return "Ya existe un usuario registrado con el nombre de usuario o correo suministrado, intente nuevamente."
 		else:
 			# Al no encontrar similitudes, podemos registrar al usuario agregando sus datos a base de datos
-			db.Usuario.insert_one( { "user_name": usuario, "password": password, "email": correo, "nombre": nombre, "descripcion": "n/a", "color": "n/a", "libro": "n/a", "musica": "n/a", "video_juego": "n/a", "lenguajes": "n/a", "genero": "n/a", "ci": "n/a", "fecha_nacimiento": "n/a", "ruta_foto_perfil": "n/a", "telefono": "n/a", "facebook": "n/a", "twitter": "n/a", "activa": "n/a" } )
+			users.insert_one( { "user_name": usuario, "password": password, "email": correo, "nombre": nombre, "apellido": "n/a", "descripcion": "n/a", "color": "n/a", "libro": "n/a", "musica": "n/a", "video_juego": "n/a", "lenguajes": "n/a", "genero": "n/a", "fecha_nacimiento": "n/a", "ruta_foto_perfil": "n/a", "telefono": "n/a", "facebook": "n/a", "twitter": "n/a", "activa": "n/a", "amigos":["n/a"] } )
 
 			# Regresamos a la pantalla de login
 			return render_template("login.html")
 
 @app_flask.route('/index', methods=['POST'])
 def index():
+	global usuario_email
 	# Se solicita el verificador de sesión para su modificación
 	global sesion_state
 
@@ -61,10 +63,10 @@ def index():
 		password = request.form['password_login']
 
 		# Buscamos alguna similitud en base de datos, con user_name o correo
-		query_existe1 = db.Usuario.find_one( { "user_name": usuario_email } )
-		cant1 = db.Usuario.find( { "user_name": usuario_email } ).count()
-		query_existe2 = db.Usuario.find_one( { "email": usuario_email } )
-		cant2 = db.Usuario.find( { "email": usuario_email } ).count()
+		query_existe1 = users.find_one( { "user_name": usuario_email } )
+		cant1 = users.find( { "user_name": usuario_email } ).count()
+		query_existe2 = users.find_one( { "email": usuario_email } )
+		cant2 = users.find( { "email": usuario_email } ).count()
 
 		# Si no se consigue ningún usuario, sea por user_name o por email
 		if cant1 < 1 and cant2 < 1:
@@ -126,10 +128,13 @@ def perfil():
 # Solicitudes y lista de amigos
 @app_flask.route("/amigos")
 def amigos():
+	usuario_auth = users.find_one( { "email" : usuario_email } )
+	nombre = usuario_auth["nombre"]
+
 	if sesion_state == 1:
 		return render_template("login.html")
 	else:
-		return render_template("amigos.html")
+		return render_template("amigos.html", nombre = nombre)
 
 # Página de búsqueda de amigos
 @app_flask.route("/buscar")
@@ -148,17 +153,22 @@ def chat():
 
 @app_flask.route("/configuracion")
 def config():
+	usuario_auth = users.find_one( { "email" : usuario_email } )
+	nombre = usuario_auth["nombre"]
+
 	if sesion_state == 1:
 		return render_template("login.html")
 	else:
-		return render_template("configuracion.html")
+		return render_template("configuracion.html", nombre = nombre)
 
 @app_flask.route("/fotos")
 def fotos():
+	usuario_auth = users.find_one( { "email" : usuario_email } )
+	nombre = usuario_auth["nombre"]
 	if sesion_state == 1:
 		return render_template("login.html")
 	else:
-		return render_template("fotos.html")
+		return render_template("fotos.html", nombre = nombre)
 
 @app_flask.route("/notificaciones")
 def notify():
@@ -168,11 +178,63 @@ def notify():
 		return render_template("notificaciones.html")
 
 @app_flask.route("/personalizar")
-def customize():
+def customize_show():
+	usuario_auth = users.find_one( { "email" : usuario_email } )
+	nombre = usuario_auth["nombre"]
+	apellido = usuario_auth["apellido"]
+	descripcion = usuario_auth["descripcion"]
+	libro = usuario_auth["libro"]
+	musica = usuario_auth["musica"]
+	video_juego = usuario_auth["video_juego"]
+	fecha_nacimiento = usuario_auth["fecha_nacimiento"]
+	telefono = usuario_auth["telefono"]
+	genero = usuario_auth["genero"]
+	email = usuario_email
+
 	if sesion_state == 1:
 		return render_template("login.html")
 	else:
-		return render_template("personalizar.html")
+		return render_template("personalizar.html", nombre = nombre, email = email, apellido = apellido, descripcion = descripcion, libro = libro, musica = musica, video_juego = video_juego, fecha_nacimiento = fecha_nacimiento, telefono = telefono, genero = genero)
+
+
+@app_flask.route("/personalizar", methods=["POST"])
+def customize_update():
+	#Se realiza la búsqueda por el email del usuario
+	usuario_auth = users.find_one( { "email" : usuario_email } )
+	#Luego se buscan los campos que ya deben estar predefinidos en la template de personalizacion
+	nombre = usuario_auth["nombre"]
+	email = usuario_email
+
+	#Se hace request de los campos que se van a actualizar desde la form de personalizacion
+	nombre = request.form['nombre']
+	apellido = request.form['apellido']
+	descripcion = request.form['descripcion']
+	libro = request.form['libro']
+	musica = request.form['musica']
+	video_juego = request.form['video_juego']
+	fecha_nacimiento = request.form['fecha_nacimiento']
+	telefono = request.form['telefono']
+	genero = request.form['genero']
+	email = request.form['email']
+	
+
+	users.update_one({"email":usuario_email}, {"$set":{"nombre":nombre}})
+	users.update_one({"email":usuario_email}, {"$set":{"apellido":apellido}})
+	users.update_one({"email":usuario_email}, {"$set":{"descripcion":descripcion}})
+	users.update_one({"email":usuario_email}, {"$set":{"libro":libro}})
+	users.update_one({"email":usuario_email}, {"$set":{"musica":musica}})
+	users.update_one({"email":usuario_email}, {"$set":{"video_juego":video_juego}})
+	users.update_one({"email":usuario_email}, {"$set":{"fecha_nacimiento":fecha_nacimiento}})
+	users.update_one({"email":usuario_email}, {"$set":{"telefono":telefono}})
+	users.update_one({"email":usuario_email}, {"$set":{"genero":genero}})
+	users.update_one({"email":usuario_email}, {"$set":{"fecha_nacimiento":fecha_nacimiento}})
+	users.update_one({"email":usuario_email}, {"$set":{"email": email}})
+
+	if sesion_state == 1:
+		return render_template("login.html")
+	else:
+		return render_template("personalizar.html", nombre = nombre, email = email, apellido = apellido, descripcion = descripcion, libro = libro, musica = musica, video_juego = video_juego, fecha_nacimiento = fecha_nacimiento, telefono = telefono, genero = genero)
+
 
 @app_flask.route("/solicitud_amistad")
 def friend_req():
@@ -182,3 +244,15 @@ def friend_req():
 		return render_template("solicitud_amistad.html")
 
 #{{ url_for('static', filename='js/
+
+### Personalización ###
+'''@app_flask.route('/personalizar.html', methods=['POST'])
+@login_required
+def customize_auth():
+	global usuario
+	# Tomo los valores que se suministraron en "Registrar" y valido si ya se encuentra un usuario o e-mail igual en base de datos
+	usuario_auth = users.find( { "user_name":usuario })
+	nombre = usuario_auth["nombre"]
+	render_template("personalizar.html" nombre = nombre)'''
+
+	
