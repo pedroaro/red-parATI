@@ -45,103 +45,146 @@
           </ul>
         </nav>
       </header>
-      <div id="fh5co-main">
-        <div class="bloqueBlanco" style="margin-left:-10%">
-        <h3>Notificaciones</h3>
-          <div class="row">
-            <div class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-12">
-              <h4>Sonido de Notificaciones</h4>
-            </div>
-            <div class="col">
-              <center>
-                <label class="switch" style="margin-top: .5em">
-                  <input type="checkbox" checked>
-                  <span class="slider round"></span>
-                </label>
-            </center>
+         <form action="configuracion" method="post"> 
+          <div id="fh5co-main">
+            <div class="bloqueBlanco" style="margin-left:-10%">
+            <h3>Notificaciones</h3>
+              <div class="row">
+                <div class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-12">
+                  <h4>Sonido de Notificaciones</h4>
+                </div>
+                <div class="col">
+                  <center>
+                    <label class="switch" style="margin-top: .5em">
+                      <input type="checkbox" name="notificaciones_sound" checked>
+                      <span class="slider round"></span>
+                    </label>
+                </center>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-12">
+                  <h4>Notificarme al correo de las Actualizaciones</h4>
+                </div>
+                <div class="col">
+                  <center>
+                    <label class="switch" style="margin-top: .5em">
+                      <input type="checkbox" name="notificaciones_mail" checked>
+                      <span class="slider round"></span>
+                    </label>
+                </center>
+                </div>
+              </div>
+            <h3>Privacidad</h3>
+              <div class="row">
+                <div class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-12">
+                  <h4>Aparecer en los buscadores de Red ParATI</h4>
+                </div>
+                <div class="col">
+                  <center>
+                    <label class="switch" style="margin-top: .5em">
+                      <input type="checkbox" name="busqueda">
+                      <span class="slider round"></span>
+                    </label>
+                </center>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-12">
+                  <h4>Hacer mis votos privados</h4>
+                </div>
+                <div class="col">
+                  <center>
+                    <label class="switch" style="margin-top: .5em">
+                      <input type="checkbox" name="votos" >
+                      <span class="slider round"></span>
+                    </label>
+                </center>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-12">
+                  <h4>Recordarles a mis amigos de mi cumpleaños</h4>
+                </div>
+                <div class="col">
+                  <center>
+                    <label class="switch" style="margin-top: .5em">
+                      <input type="checkbox" name="bd_reminder" checked>
+                      <span class="slider round"></span>
+                    </label>
+                </center>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-12">
+                  <h4>Quienes pueden ver mi información y preferencias</h4>
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-3 col-sm-3 col-xs-12">
+                  {%if (privados == "n/a")%}
+                    <select class="form-control" name="privados">
+                      <option value="T">Todos</option>
+                      <option value="A">Amigos</option>
+                      <option value="M">Mejores Amigos</option>
+                      <option value="Y">Solo Yo</option>
+                    </select>
+                  {% else %}
+                    {%if (privados == "T")%}
+                      <select class="form-control" name="privados">
+                        <option selected="selected" value="T">Todos</option>
+                        <option value="A">Amigos</option>
+                        <option value="M">Mejores Amigos</option>
+                        <option value="Y">Solo Yo</option>
+                      </select>
+                    {% elif (privados == "A") %}
+                      <select class="form-control" name="privados">
+                        <option value="T">Todos</option>
+                        <option selected="selected" value="A">Amigos</option>
+                        <option value="M">Mejores Amigos</option>
+                        <option value="Y">Solo Yo</option>
+                      </select>
+                    {% elif (privados == "M") %}
+                      <select class="form-control" name="privados">
+                        <option value="T">Todos</option>
+                        <option value="A">Amigos</option>
+                        <option selected="selected" value="M">Mejores Amigos</option>
+                        <option value="Y">Solo Yo</option>
+                      </select>
+                    {% else %}
+                      <select class="form-control" name="privados">
+                        <option value="T">Todos</option>
+                        <option value="A">Amigos</option>
+                        <option value="M">Mejores Amigos</option>
+                        <option selected="selected" value="Y">Solo Yo</option>
+                      </select>
+                    {% endif %}
+                  {% endif %}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-8 col-lg-8 col-xl-8 col-sm-8 col-xs-12">
+                  <h4>Cambiar Contraseña</h4>
+                </div>
+                <div class="col-md-4 col-lg-4 col-xl-4 col-sm-4 col-xs-12" style="margin-top:.5em;">
+                  <input class="form-control" name="old_pass" type="password" placeholder="Actual contraseña" />
+                  <input class="form-control" name="new_pass" type="password" placeholder="Nueva contraseña" />
+                  <input class="form-control" name="new_pass_2" type="password" placeholder="Repita la nueva contraseña" oninput="check(this)"/>
+                  <script language='javascript' type='text/javascript'>
+                    function check(input) {
+                        if (input.value != document.getElementById('new_pass').value) {
+                            input.setCustomValidity('Password Must be Matching.');
+                        } else {
+                            // input is valid -- reset the error message
+                            input.setCustomValidity('');
+                        }
+                    }
+                  </script>
+                </div>
+              </div>
+              <center style="margin-top: 30px">
+                <button type="submit" class="btn-round btn-default azul" href="#" >Guardar Cambios</button>
+              </center>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-12">
-              <h4>Notificarme al correo de las Actualizaciones</h4>
-            </div>
-            <div class="col">
-              <center>
-                <label class="switch" style="margin-top: .5em">
-                  <input type="checkbox" checked>
-                  <span class="slider round"></span>
-                </label>
-            </center>
-            </div>
-          </div>
-        <h3>Privacidad</h3>
-          <div class="row">
-            <div class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-12">
-              <h4>Aparecer en los buscadores de Red ParATI</h4>
-            </div>
-            <div class="col">
-              <center>
-                <label class="switch" style="margin-top: .5em">
-                  <input type="checkbox" >
-                  <span class="slider round"></span>
-                </label>
-            </center>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-12">
-              <h4>Hacer mis votos privados</h4>
-            </div>
-            <div class="col">
-              <center>
-                <label class="switch" style="margin-top: .5em">
-                  <input type="checkbox" >
-                  <span class="slider round"></span>
-                </label>
-            </center>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-12">
-              <h4>Recordarles a mis amigos de mi cumpleaños</h4>
-            </div>
-            <div class="col">
-              <center>
-                <label class="switch" style="margin-top: .5em">
-                  <input type="checkbox" checked>
-                  <span class="slider round"></span>
-                </label>
-            </center>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-9 col-lg-9 col-xl-9 col-sm-9 col-xs-12">
-              <h4>Quienes pueden ver mi información y preferencias</h4>
-            </div>
-            <div class="col-md-3 col-lg-3 col-xl-3 col-sm-3 col-xs-12">
-              <select class="form-control" name="privados">
-                <option value="T">Todos</option>
-                <option value="A">Amigos</option>
-                <option value="M">Mejores Amigos</option>
-                <option value="Y">Solo Yo</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-8 col-lg-8 col-xl-8 col-sm-8 col-xs-12">
-              <h4>Cambiar Contraseña</h4>
-            </div>
-            <div class="col-md-4 col-lg-4 col-xl-4 col-sm-4 col-xs-12" style="margin-top:.5em;">
-              <input class="form-control" type="password" placeholder="Actual contraseña" />
-              <input class="form-control" type="password" placeholder="Nueva contraseña" />
-              <input class="form-control" type="password" placeholder="Repita la nueva contraseña" />
-            </div>
-          </div>
-          <center style="margin-top: 30px">
-            <a class="btn-round btn-default azul" href="#" >Guardar Cambios</a>
-          </center>
-        </div>
-      </div>
     </div>
 
 {% endblock %}

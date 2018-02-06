@@ -82,10 +82,10 @@ def login_after_register():
 			return render_template("login.html", failed=1, message="Ya existe un usuario registrado con el correo suministrado")
 		else:
 			# Al no encontrar similitudes, podemos registrar al usuario agregando sus datos a base de datos
-			users.insert_one( { "user_name": usuario, "password": password, "email": correo, "nombre": nombre, "apellido": "n/a", "descripcion": "n/a", "color": "n/a", "libro": "n/a", "musica": "n/a", "video_juego": "n/a", "lenguajes": "n/a", "genero": "n/a", "fecha_nacimiento": "n/a", "ruta_foto_perfil": "n/a", "telefono": "n/a", "facebook": "n/a", "twitter": "n/a", "activa": "n/a", "amigos":["n/a"] } )
+			users.insert_one( { "user_name": usuario, "password": password, "email": correo, "nombre": nombre, "apellido": "n/a", "descripcion": "n/a", "color": "n/a", "libro": "n/a", "musica": "n/a", "video_juego": "n/a", "lenguajes": "n/a", "genero": "n/a", "fecha_nacimiento": "n/a", "ruta_foto_perfil": "n/a", "telefono": "n/a", "facebook": "n/a", "twitter": "n/a", "activa": "n/a", "privados": "n/a", "notificaciones": "n/a", "amigos":["n/a"] } )
 
 			# Regresamos a la pantalla de login
-			return render_template("login.html")
+			return render_template("personalizar.html", nombre = nombre, email = correo)
 
 @app_flask.route('/index', methods=['POST'])
 def index():
@@ -133,6 +133,7 @@ def index():
 		#En caso de sesión ya iniciada, se permite ir al index
 		return render_template("index.html")
 
+
 # FUNCIONES DE VERIFICACIÓN DE SESIÓN
 @app_flask.route("/login")
 def login_prepost():
@@ -160,11 +161,19 @@ def post_index():
 
 # Perfil de Usuario
 @app_flask.route("/perfil")
-def perfil():
+def perfil_show():
+	usuario_auth = users.find_one( { "email" : usuario_email } )
+	nombre = usuario_auth["nombre"]
+	apellido = usuario_auth["apellido"]
+	descripcion = usuario_auth["descripcion"]
+	libro = usuario_auth["libro"]
+	musica = usuario_auth["musica"]
+	video_juego = usuario_auth["video_juego"]
+
 	if sesion_state == 1:
 		return render_template("login.html")
 	else:
-		return render_template("perfil.html")
+		return render_template("perfil.html", nombre = nombre, apellido = apellido, descripcion = descripcion, libro = libro, musica = musica, video_juego = video_juego)
 
 # Solicitudes y lista de amigos
 @app_flask.route("/amigos")
@@ -193,14 +202,41 @@ def chat():
 		return render_template("chat.html")
 
 @app_flask.route("/configuracion")
-def config():
+def config_show():
 	usuario_auth = users.find_one( { "email" : usuario_email } )
 	nombre = usuario_auth["nombre"]
+
+	privados = usuario_auth["privados"]
+
+
 
 	if sesion_state == 1:
 		return render_template("login.html")
 	else:
-		return render_template("configuracion.html", nombre = nombre)
+		return render_template("configuracion.html", nombre = nombre, privados = privados)
+
+@app_flask.route("/configuracion", methods=['POST'])
+def config_update():
+	usuario_auth = users.find_one( { "email" : usuario_email } )
+	nombre = usuario_auth["nombre"]
+
+	privados = request.form["privados"]
+	old_pass = request.form["old_pass"]	
+	new_pass = request.form["new_pass"]
+	new_pass_2 = request.form["new_pass_2"]
+	if (new_pass_2 != new_pass):
+		return "Las contraseñas no coinciden" #PLACEHOLDER
+	else:
+		users.update_one({"email":usuario_email}, {"$set":{"password":new_pass}})
+
+
+		
+
+	if sesion_state == 1:
+		return render_template("login.html")
+	else:
+		return render_template("configuracion.html", nombre = nombre, privados = privados)
+
 
 @app_flask.route("/fotos")
 def fotos():

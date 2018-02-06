@@ -153,7 +153,7 @@
                             <i class="fa fa-calendar">
                             </i>
                           </div>
-                            <input class="form-control" id="date" name="fecha_nacimiento" placeholder="MM/DD/AAAA" type="text"/>
+                            <input class="form-control" id="date" name="fecha_nacimiento" placeholder="Ingresa la fecha en formato MM/DD/AAAA" type="text"/>
                         </div>
                       </div>                    
                     </div>
@@ -165,7 +165,7 @@
                               <i class="fa fa-calendar">
                               </i>
                             </div>
-                            <input class="form-control" id="date" name="fecha_nacimiento" value="{{fecha_nacimiento}}" placeholder="MM/DD/AAAA" type="text"/>
+                            <input class="form-control" id="date" name="fecha_nacimiento" value="{{fecha_nacimiento}}" placeholder="Ingresa la fecha en formato MM/DD/AAAA" type="text"/>
                           </div>
                         </div>                    
                       </div>
@@ -196,11 +196,25 @@
                         <option value="O">Otro</option>
                       </select>
                     {% else %}
-                      <select class="form-control" name="genero" 
-                        <option value="M">Masculino</option>
-                        <option value="F">Femenino</option>
-                        <option value="O">Otro</option>
-                      </select>
+                      {%if (genero == "M")%}
+                        <select class="form-control" name="genero" value="Masculino">
+                          <option selected="selected" value="M">Masculino</option>
+                          <option value="F">Femenino</option>
+                          <option value="O">Otro</option>
+                        </select>
+                      {% elif (genero == "F") %}
+                        <select class="form-control" name="genero" value="Masculino">
+                          <option value="M">Masculino</option>
+                          <option selected="selected" value="F">Femenino</option>
+                          <option value="O">Otro</option>
+                        </select>
+                      {% else %}
+                        <select class="form-control" name="genero" value="Masculino">
+                          <option value="M">Masculino</option>
+                          <option value="F">Femenino</option>
+                          <option selected="selected" value="O">Otro</option>
+                        </select>
+                      {% endif %}
                     {% endif %}
                   </div>
                 </div>

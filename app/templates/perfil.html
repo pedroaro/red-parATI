@@ -21,10 +21,10 @@
           <div class="useravatar">
               <img alt="" src="{{ url_for('static', filename='img/avatar.jpg') }}">
           </div>
-          <div class="card-info"> <span class="card-title">Sam Claflin</span>
+          <div class="card-info"> <span class="card-title" name="nombre">{{nombre + " " + apellido}}</span>
             <br>
-            <span id="description" class="card-description">
-               Sam Claflin es un actor británico que interpreta el papel de Finnick Odair en la película de Los Juegos del Hambre: En Llamas y Los Juegos del Hambre: Sinsajo Partes 1 y 2. Finnick Odair fue un vencedor del Distrito 4. Finnick ganó los 65º Juegos del Hambre y sobrevivió los 75º Juegos del Hambre, que eran una edición especial por corresponder al Vasallaje de los Veinticinco, celebrado cada 25 años.
+            <span id="description" name="descripcion" class="card-description">
+               {{descripcion}}
             </span>
           </div>
       </div>
@@ -64,7 +64,7 @@
               <div class="useravatar">
                   <img alt="" src="{{ url_for('static', filename='img/avatar.jpg') }}">
               </div>
-              <a href="#" class="author"><span class="name">Sam Claflin</span></a>
+              <a href="#" class="author"><span class="name" name="nombre">{{nombre}}</span></a>
               </center>
             </div>
             <div class="title">
@@ -91,7 +91,7 @@
               <div class="useravatar">
                   <img alt="" src="{{ url_for('static', filename='img/avatar.jpg') }}">
               </div>
-              <a href="#" class="author"><span class="name">Sam Claflin</span></a>
+              <a href="#" class="author"><span class="name" name="nombre">{{nombre}}</span></a>
               </center>
             </div>
             <div class="title">
@@ -168,23 +168,32 @@
       <div id="skills">
         <div class="bloqueBlanco">
           <h3>Libros que me han gustado:</h3>
-          <div class="bloquePerla job" id="primeraC"> 
-            <h4>The Hunger Games</h4>
-            <h4>Harry Potter</h4>
+          <div class="bloquePerla job" id="primeraC">
+          {% if (libro == "n/a") %}
+            <a href="/personalizar.html">Personaliza esta sección haciendo click aquí</a>
+          {% else %}
+            <h4 name="libro">{{libro}}</h4>
+          {% endif %}
           </div>
         </div>
         <div class="bloqueBlanco">
-            <h3>Música que me gusta</h3>
-            <div class="bloquePerla job" id="primeraC"> 
-              <h4>Pop</h4>
-              <h4>Rock</h4>
-            </div>
+          <h3>Música que me gusta</h3>
+          <div class="bloquePerla job" id="primeraC"> 
+            {% if (musica == "n/a") %}
+              <a href="/personalizar.html"><h4>Personaliza esta sección haciendo click aquí<h4></a>
+            {% else %}
+              <h4 name="musica">{{musica}}</h4>
+            {% endif %}
+          </div>
         </div>
         <div class="bloqueBlanco">
           <h3>Mis Videojuegos favoritos:</h3>
           <div class="bloquePerla job" id="primeraC"> 
-            <h4>Skyrim: The Elder Scrolls</h4>
-            <h4>Tomb Raider</h4>
+            {% if (video_juego == "n/a") %}
+              <h4 name="video_juego">Personaliza esta sección haciendo click <a href="/personalizar.html">aquí</a><h4>
+            {% else %}
+              <h4 name="video_juego">{{video_juego}}</h4>
+            {% endif %}
           </div>
         </div>
         <div class="bloqueBlanco">
