@@ -225,11 +225,14 @@ def config_update():
 	new_pass_2 = request.form["new_pass_2"]
 
 	if (old_pass != usuario_auth["password"]):
-		return "Las contraseña no coincide con la original. Intente nuevamente."
-	elif (new_pass_2 != new_pass):
-		return "Las contraseñas no coinciden. Intente nuevamente."
+		return render_template("configuracion.html", failed=1, message="La contraseña actual introducida no coincide con la original. Intente nuevamente.")
 	else:
-		users.update_one({"email":usuario_email}, {"$set":{"password":new_pass}})
+		if (new_pass_2 != new_pass):
+			return render_template("configuracion.html", failed=1, message="Las nuevas contraseñas no coinciden. Intente nuevamente.")
+		else:
+			users.update_one({"email":usuario_email}, {"$set":{"password":new_pass}})
+			return render_template("configuracion.html", failed=1, message="¡Contraseña modificada exitosamente!")
+
 
 
 		
