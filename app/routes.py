@@ -28,14 +28,29 @@ usuario_email = ""
 # Desvio de Cierre de Sesión
 
 #Ruta para el envio de mail
-@app_flask.route('/send-mail/')
+@app_flask.route('/recuperar_password', methods=['POST'])
 def send_mail():
-	msg = Message("Mail de Prueba | RedparATI",
-	  sender="redparati.noreply@gmail.com",
-	  recipients=["satorudiaz@gmail.com", "escalante.raquelj@gmail.com"])
-	msg.body = "Mail de Prueba"           
-	mail.send(msg)
-	return 'Mail sent!'
+	# Se toma el correo suministrado del formulario
+	correo = request.form['correo_recuperar']
+
+	# Se verifica que el correo suministrado pertenezca a un usuario registrado en BD
+	query_existe = users.find_one( { "email": correo } )
+	cant = users.find( { "email": correo } ).count()
+
+	# Si existe un usuario registrado con ese correo
+	if cant >= 1:
+		# Enviar correo Message(Titulo, Emisor, Receptores)
+		msg = Message("RedparATI | Solicitud de recuperación de contraseña",
+		  sender="redparati.noreply@gmail.com",
+		  recipients=[correo])
+		# Cuerpo del mensaje -> Aquí insertamos los datos: correo y contraseña
+		msg.body = "¡Bienvenido a redparATI!\n\n" + "Se ha solicitado una recuperación de contraseña\n\n" + "Sus credenciales son:\n" + "Correo: " + correo + "\nContraseña: " + query_existe['password'] + "\n\n¡Muchas gracias por utilizar nuestro sistema de recuperación de contraseña!" + "\n\n\nRedparATI - Support Team"         
+		mail.send(msg)
+		# Se devuelve un mensaje de feedback exitoso, y se envía el correo
+		return "Sus datos han sido enviados. Por favor verifique su correo electrónico."
+	else:
+		# Si no existe el usuario, mostrar mensaje de error
+		return "El correo suministrado es inválido. Intente nuevamente."
 
 #Ruta para cerrar sesión
 @app_flask.route("/loginOut")

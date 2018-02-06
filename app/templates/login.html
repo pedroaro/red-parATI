@@ -42,8 +42,8 @@
     <div class="form" id="password">
       <h2>¿Olvidaste tu contraseña?</h2>
       <h5>No te preocupes, solo ingresa tu correo y te enviaremos tu nueva clave</h5>
-      <form>
-        <input type="email" placeholder="Correo Electronico"/>
+      <form action="recuperar_password" method="post">
+        <input type="email" placeholder="Correo Electronico" name="correo_recuperar" required/>
         <button>Enviar Contraseña</button>
       </form>
     </div>
