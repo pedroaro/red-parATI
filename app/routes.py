@@ -72,14 +72,14 @@ def login_after_register():
 
 	# Si query_existe >= 1, quiere decir que ya hay un usuario con el mismo user_name
 	if query_existe >= 1:
-		return "Ya existe un usuario registrado con el nombre de usuario o correo suministrado, intente nuevamente."
+		return render_template("login.html", failed=1, message="Ya existe un usuario registrado con el nombre de usuario.")
 	else:
 		# Buscamos alguna similitud en base de datos, con email
 		query_existe = users.find( { "email": correo } ).count()
 
 		# Si query_existe >= 1, quiere decir que ya hay un usuario con el mismo email
 		if query_existe >= 1:
-			return "Ya existe un usuario registrado con el nombre de usuario o correo suministrado, intente nuevamente."
+			return render_template("login.html", failed=1, message="Ya existe un usuario registrado con el correo suministrado")
 		else:
 			# Al no encontrar similitudes, podemos registrar al usuario agregando sus datos a base de datos
 			users.insert_one( { "user_name": usuario, "password": password, "email": correo, "nombre": nombre, "apellido": "n/a", "descripcion": "n/a", "color": "n/a", "libro": "n/a", "musica": "n/a", "video_juego": "n/a", "lenguajes": "n/a", "genero": "n/a", "fecha_nacimiento": "n/a", "ruta_foto_perfil": "n/a", "telefono": "n/a", "facebook": "n/a", "twitter": "n/a", "activa": "n/a", "amigos":["n/a"] } )
@@ -111,14 +111,14 @@ def index():
 
 		# Si no se consigue ningún usuario, sea por user_name o por email
 		if cant1 < 1 and cant2 < 1:
-			return "El usuario o e-mail suministrado no es correcto. Intente nuevamente."
+			return render_template("login.html", failed=1, message="El usuario o e-mail suministrado no es correcto. Intente nuevamente.")
 		else:
 			# Si se encuentra una coincidencia por user_name, se verifica si la contraseña coincide con los datos en BD
 			if cant1 >= 1:
 				if query_existe1['password'] == password:
 					return render_template("index.html")
 				else:
-					return "La contraseña es incorrecta. Intente nuevamente."
+					return render_template("login.html", failed=1, message="La contraseña es incorrecta. Intente nuevamente.")
 			else:
 				# Si se encuentra una coincidencia por correo, se verifica si la contraseña coincide con los datos en BD
 				if cant2 >= 1:
@@ -126,9 +126,9 @@ def index():
 						
 						return render_template("index.html")
 					else:
-						return "La contraseña es incorrecta. Intente nuevamente."
+						return render_template("login.html", failed=1, message="La contraseña es incorrecta. Intente nuevamente.")
 				else:
-					return "La contraseña es incorrecta. Intente nuevamente."
+					return render_template("login.html", failed=1, message="La contraseña es incorrecta. Intente nuevamente.")
 	else:
 		#En caso de sesión ya iniciada, se permite ir al index
 		return render_template("index.html")
