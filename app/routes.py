@@ -47,10 +47,10 @@ def send_mail():
 		msg.body = "¡Bienvenido a redparATI!\n\n" + "Se ha solicitado una recuperación de contraseña\n\n" + "Sus credenciales son:\n" + "Correo: " + correo + "\nContraseña: " + query_existe['password'] + "\n\n¡Muchas gracias por utilizar nuestro sistema de recuperación de contraseña!" + "\n\n\nRedparATI - Support Team"         
 		mail.send(msg)
 		# Se devuelve un mensaje de feedback exitoso, y se envía el correo
-		return "Sus datos han sido enviados. Por favor verifique su correo electrónico."
+		return render_template("login.html", failed=1, message="Sus datos han sido enviados. Por favor verifique su correo electrónico.")
 	else:
 		# Si no existe el usuario, mostrar mensaje de error
-		return "El correo suministrado es inválido. Intente nuevamente."
+		return render_template("login.html", failed=1, message="El correo suministrado es inválido. Intente nuevamente.")
 
 #Ruta para cerrar sesión
 @app_flask.route("/loginOut")
@@ -85,7 +85,7 @@ def login_after_register():
 			users.insert_one( { "user_name": usuario, "password": password, "email": correo, "nombre": nombre, "apellido": "n/a", "descripcion": "n/a", "color": "n/a", "libro": "n/a", "musica": "n/a", "video_juego": "n/a", "lenguajes": "n/a", "genero": "n/a", "fecha_nacimiento": "n/a", "ruta_foto_perfil": "n/a", "telefono": "n/a", "facebook": "n/a", "twitter": "n/a", "activa": "n/a", "privados": "n/a", "notificaciones": "n/a", "amigos":["n/a"] } )
 
 			# Regresamos a la pantalla de login
-			return render_template("personalizar.html", nombre = nombre, email = correo)
+			return render_template("login.html",failed=1, message="¡Usuario registrado exitosamente!")
 
 @app_flask.route('/index', methods=['POST'])
 def index():
@@ -185,7 +185,6 @@ def amigos():
 		return render_template("login.html")
 	else:
 		return render_template("amigos.html", nombre = nombre)
-
 # Página de búsqueda de amigos
 @app_flask.route("/buscar")
 def buscar():
@@ -224,8 +223,11 @@ def config_update():
 	old_pass = request.form["old_pass"]	
 	new_pass = request.form["new_pass"]
 	new_pass_2 = request.form["new_pass_2"]
-	if (new_pass_2 != new_pass):
-		return "Las contraseñas no coinciden" #PLACEHOLDER
+
+	if (old_pass != usuario_auth["password"]):
+		return "Las contraseña no coincide con la original. Intente nuevamente."
+	elif (new_pass_2 != new_pass):
+		return "Las contraseñas no coinciden. Intente nuevamente."
 	else:
 		users.update_one({"email":usuario_email}, {"$set":{"password":new_pass}})
 

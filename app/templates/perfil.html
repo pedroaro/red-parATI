@@ -170,7 +170,7 @@
           <h3>Libros que me han gustado:</h3>
           <div class="bloquePerla job" id="primeraC">
           {% if (libro == "n/a") %}
-            <a href="/personalizar.html">Personaliza esta sección haciendo click aquí</a>
+          <h4 name="libro"><a href="/personalizar">Personaliza esta sección haciendo click aquí</a><h4>
           {% else %}
             <h4 name="libro">{{libro}}</h4>
           {% endif %}
@@ -180,7 +180,7 @@
           <h3>Música que me gusta</h3>
           <div class="bloquePerla job" id="primeraC"> 
             {% if (musica == "n/a") %}
-              <a href="/personalizar.html"><h4>Personaliza esta sección haciendo click aquí<h4></a>
+            <h4 name="musica"><a href="/personalizar">Personaliza esta sección haciendo click aquí</a></h4>
             {% else %}
               <h4 name="musica">{{musica}}</h4>
             {% endif %}
@@ -190,7 +190,7 @@
           <h3>Mis Videojuegos favoritos:</h3>
           <div class="bloquePerla job" id="primeraC"> 
             {% if (video_juego == "n/a") %}
-              <h4 name="video_juego">Personaliza esta sección haciendo click <a href="/personalizar.html">aquí</a><h4>
+              <a href="/personalizar"><h4 name="video_juego">Personaliza esta sección haciendo click aquí</a><h4>
             {% else %}
               <h4 name="video_juego">{{video_juego}}</h4>
             {% endif %}
