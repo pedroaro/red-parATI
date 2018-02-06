@@ -2,16 +2,42 @@ from flask import Flask, render_template, request
 from pymongo import *
 from app import app_flask
 from bson.json_util import dumps
+from flask_mail import Mail, Message
 
 #Conexión a MongoDB usando PyMongo
 client = MongoClient()
 db = client.redparATI_db
 users = db.Usuario
 
+#Configuracion para el servicio de mailing
+app_flask.config.update(
+	DEBUG=True,
+	#EMAIL SETTINGS
+	MAIL_SERVER='smtp.gmail.com',
+	MAIL_PORT=465,
+	MAIL_USE_SSL=True,
+	MAIL_USERNAME = 'redparati.noreply@gmail.com',
+	MAIL_PASSWORD = 'redparati2017'
+	)
+
+mail = Mail(app_flask)
+
 #Verificador de sesión global
 sesion_state = 1
 usuario_email = ""
 # Desvio de Cierre de Sesión
+
+#Ruta para el envio de mail
+@app_flask.route('/send-mail/')
+def send_mail():
+	msg = Message("Mail de Prueba | RedparATI",
+	  sender="redparati.noreply@gmail.com",
+	  recipients=["satorudiaz@gmail.com", "escalante.raquelj@gmail.com"])
+	msg.body = "Mail de Prueba"           
+	mail.send(msg)
+	return 'Mail sent!'
+
+#Ruta para cerrar sesión
 @app_flask.route("/loginOut")
 def loginOut():
 	global sesion_state
@@ -179,6 +205,7 @@ def notify():
 
 @app_flask.route("/personalizar")
 def customize_show():
+	#Se obtienen de la base de datos los valores que se van a mostrar
 	usuario_auth = users.find_one( { "email" : usuario_email } )
 	nombre = usuario_auth["nombre"]
 	apellido = usuario_auth["apellido"]
@@ -217,7 +244,7 @@ def customize_update():
 	genero = request.form['genero']
 	email = request.form['email']
 	
-
+	#Se actualizan los campos 
 	users.update_one({"email":usuario_email}, {"$set":{"nombre":nombre}})
 	users.update_one({"email":usuario_email}, {"$set":{"apellido":apellido}})
 	users.update_one({"email":usuario_email}, {"$set":{"descripcion":descripcion}})
@@ -244,15 +271,4 @@ def friend_req():
 		return render_template("solicitud_amistad.html")
 
 #{{ url_for('static', filename='js/
-
-### Personalización ###
-'''@app_flask.route('/personalizar.html', methods=['POST'])
-@login_required
-def customize_auth():
-	global usuario
-	# Tomo los valores que se suministraron en "Registrar" y valido si ya se encuentra un usuario o e-mail igual en base de datos
-	usuario_auth = users.find( { "user_name":usuario })
-	nombre = usuario_auth["nombre"]
-	render_template("personalizar.html" nombre = nombre)'''
-
 	
