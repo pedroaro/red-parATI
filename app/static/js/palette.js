@@ -7,6 +7,7 @@
                 var col =( $(this).find('.coloring').attr('title') ); 
                 console.log(col);
                 document.body.style.setProperty("--color-primary-color", col);
+                document.cookie = "color="+col.toString()+"; expires=Thu, 18 Dec 2030 12:00:00 UTC; path=/";
             }
         });
     });
