@@ -1,0 +1,284 @@
+{% extends "link_base.html" %}
+{% set var_login = True %}
+    <!-- Custom styles for this template -->
+{% block custom_links %}
+    <link href="{{ url_for('static', filename='css/style.css')}}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/sidebar-chat.css')}}" rel="stylesheet">
+{% endblock %}
+
+
+<body>
+{% block content %}
+	<div class="container-fluid">
+	<div class="row">
+		<!--Modulo de Inicio y Perfil-->
+		<div class="col-md-9 col-lg-9 col-xl-9 col-xs-12">
+			
+
+
+			<!-- ////////////////////////////////////////////// POST ///////////////////////////////////////////////// -->
+        <article class="post">
+          <header>
+            <div class="meta">
+              <center>
+              <time class="published" datetime="2015-11-01">26 de Diciembre, 2017</time>
+              <br>
+              <div class="useravatar">
+                  <img alt="" src="{{ url_for('static', filename='img/avatar.jpg') }}">
+              </div>
+              <a href="#" class="author"><span class="name">Sam Claflin</span></a>
+              </center>
+            </div>
+            <div class="title">
+              <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+            </div>
+          </header>
+          <a href="#" class="image featured"><img src=" {{ url_for('static', filename='img/dark_beach.jpg')}}" alt="" /></a>
+          <footer>
+            <ul class="stats">
+              <li><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i>289</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-thumbs-down"></i>2</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-comment"></i>50</a></li>
+            </ul>
+          </footer>
+        </article>
+        <!-- ////////////////////////////////////////////// /POST ///////////////////////////////////////////////// -->
+        <!-- ////////////////////////////////////////////// POST ///////////////////////////////////////////////// -->
+        <article class="post">
+          <header>
+            <div class="meta">
+              <center>
+              <time class="published" datetime="2015-11-01">30 de Noviembre, 2017</time>
+              <br>
+              <div class="useravatar">
+                  <img alt="" src="{{ url_for('static', filename='img/avatar.jpg')}}">
+              </div>
+              <a href="#" class="author"><span class="name">Sam Claflin</span></a>
+              </center>
+            </div>
+            <div class="title">
+              <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+            </div>
+          </header>
+          <a href="#" class="image featured"><img src="{{ url_for('static', filename='img/THG.jpg')}}" alt=""/></a>
+          <footer>
+            <ul class="stats">
+              <li><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i>453</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-thumbs-down"></i>65</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-comment"></i>123</a></li>
+            </ul>
+          </footer>
+        </article>
+        <!-- ////////////////////////////////////////////// /POST ///////////////////////////////////////////////// -->
+	         <!-- ////////////////////////////////////////////// POST ///////////////////////////////////////////////// -->
+	        <article class="post">
+	          <header>
+	            <div class="meta">
+	              <center>
+	              <time class="published" datetime="2015-11-01">29 de Noviembre, 2017</time>
+	              <br>
+	              <div class="useravatar">
+	                  <img alt="" src="{{ url_for('static', filename='img/zac-efron.jpg') }}">
+	              </div>
+	              <a href="#" class="author"><span class="name">Zac Efron</span></a>
+	              </center>
+	            </div>
+	            <div class="title">
+	              <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+	            </div>
+	          </header>
+	          <a href="#" class="image featured"><img src="{{ url_for('static', filename='img/post3.jpg')}}" alt=""/></a>
+	          <footer>
+	            <ul class="stats">
+	              <li><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i>1345</a></li>
+	              <li><a href="#"><i class="glyphicon glyphicon-thumbs-down"></i>87</a></li>
+	              <li><a href="#"><i class="glyphicon glyphicon-comment"></i>340</a></li>
+	            </ul>
+	          </footer>
+	        </article>
+	        <!-- ////////////////////////////////////////////// /POST ///////////////////////////////////////////////// -->
+	        <!-- ////////////////////////////////////////////// POST ///////////////////////////////////////////////// -->
+	        <article class="post">
+	          <header>
+	            <div class="meta">
+	              <center>
+	              <time class="published" datetime="2015-11-01">20 de Noviembre, 2017</time>
+	              <br>
+	              <div class="useravatar">
+	                  <img alt="" src="{{ url_for('static', filename='img/sasha.jpg') }}">
+	              </div>
+	              <a href="#" class="author"><span class="name">Sasha Lizardi</span></a>
+	              </center>
+	            </div>
+	            <div class="title">
+	              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	            </div>
+	          </header>
+	          <footer>
+	            <ul class="stats">
+	              <li><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i>45</a></li>
+	              <li><a href="#"><i class="glyphicon glyphicon-thumbs-down"></i>3</a></li>
+	              <li><a href="#"><i class="glyphicon glyphicon-comment"></i>23</a></li>
+	            </ul>
+	          </footer>
+	        </article>
+	        <!-- ////////////////////////////////////////////// /POST ///////////////////////////////////////////////// -->
+
+
+
+		</div>
+
+		<!--__________________________________INICIO_SIDEBAR_CHAT__________________________________-->
+
+		<div class="col-sm-3 hidden-xs">
+			<div class="row g4_sidechat">
+				<div class="col-sm-12">
+					
+					<!-- Amigos en la lista de contactos lateral -->
+					<div class="row g4_sidebar_friend" data-id="f1">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/AnneHathaway.jpg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Anne Hathaway</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f2">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/josh-hutcherson.jpg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Josh Hutcherson</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f3">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/sasha.jpg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Sasha Lizardi</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f4">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src=" {{ url_for('static', filename='img/zac-efron.jpg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Zac Efron</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f5">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src=" {{ url_for('static', filename='img/mark-zuckerberg.jpg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Mark Zuckerberg</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f6">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src=" {{ url_for('static', filename='img/saul-hudson.jpg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Saul Hudson</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f7">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src=" {{ url_for('static', filename='img/arnold-schwarzenegger.jpeg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Arnold Schwarzenegger</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f8">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src=" {{ url_for('static', filename='img/lisa-kudrow.jpeg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Regina Phalange</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f9">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src=" {{ url_for('static', filename='img/david-schwimmer.jpeg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">David Schwimmer</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f10">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src=" {{ url_for('static', filename='img/courteney-cox.jpeg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Courteney Cox</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f11">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src=" {{ url_for('static', filename='img/matt-leblanc.jpeg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Matt LeBlanc</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f12">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src=" {{ url_for('static', filename='img/jennifer-aniston.jpeg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Jennifer Aniston</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f13">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src=" {{ url_for('static', filename='img/matthew-perry.jpeg') }} " class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Matthew Perry</p>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<!-- Chat tabs -->
+		<div class="col-xs-9 hidden-xs g4_chat_tab_container"></div>
+		
+		<!--__________________________________FIN_SIDEBAR_CHAT__________________________________-->
+		
+	</div>
+	</div>
+{% endblock %}
+</body>
+{% block scripts %}
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js')}}")></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{{ url_for('static', filename='js/ie10-viewport-bug-workaround.js')}}"></script>
+  
+	<!-- Script del sidebar chat -->
+	<script src="{{ url_for('static', filename='js/sidebar-chat.js')}}"></script>
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- html base inicial (meta) -->
+    <title>Red parATI</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="{{ url_for('static', filename='js/ie-emulation-modes-warning.js') }}"></script>
+    <!-- fin html base inicial -->
+    {% block link_base_next %}{% endblock %}
+
+    <!-- links especificos de pagina -->
+    {% block custom_links %}{% endblock %}
+    
+</head>
+    <!-- contenido -->
+    {% if var_login %}
+        {% block menu %}{% endblock %}
+    {% endif %}
+    {% block content %}{% endblock %}
+    {% block scripts %}{% endblock %}
+    
+    
+</html>

@@ -1,0 +1,322 @@
+{% extends "link_base.html" %}
+{% set var_login = True %}
+{% block custom_links %}
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/sidebar-chat.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/perfil.css') }}" rel="stylesheet">
+
+    <style>
+        .card.hovercard .card-info {
+            position: relative;
+            left: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333 !important;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .card{
+            margin: 0;
+            padding-left: 15px !important;
+        }
+
+        h1{
+            color: #333 !important;
+        }
+        body{
+            margin-bottom:0px;
+            padding-bottom:0px;
+            color: white;  
+        }
+        #main{
+           padding: 0;
+        }
+        #modChat,#modContact,#modInfo{
+            border: solid #333 1px;
+            padding: 0px;
+        }
+
+        .card.hovercard .g4_sidechat_name{
+            text-align: left;
+        }
+
+        #modContact{
+            overflow: auto;
+            height: 83vh;
+            border: solid #333 1px;
+        }
+
+        #chatWithTiny{
+            height: 3.5em !important;
+            cursor: auto;
+        }
+
+        #modChat{
+            background-color: #333;
+            height: 83vh;
+            border-radius: 10px; 
+        }
+        #ventana{
+            width: 100%;
+            height: 70vh;
+            padding: 10px;
+            background-color: white;
+            overflow: scroll;
+        }
+        #msjs{
+            width: 100%;
+            height: 10vh;
+            
+            padding: 0;
+        }
+        @media screen and (max-width: 768px) {
+            .g4_sidebar_friend{
+                padding: 3px;
+            }
+            .g4_thumbnail_container{
+                text-align: center;
+            }
+        }
+
+        .g4_sidebar_friend{
+            width: 100%;
+            margin: 0 0 0 0;
+            padding: 0px;
+        }
+
+        #msjs div div{
+            padding: 0;
+            height: 40px;
+
+        }
+
+        #msjs div div textarea{
+            resize: none;
+            width: 100%;
+            height: 40px;
+        }
+        #msjs div button{
+            height: 40px;
+        }
+        .globo{
+            background-color: var(--color-primary-color);
+            display: table;
+            padding: 10px;
+            border-radius: 20px;
+            color: whitesmoke;
+            font-weight: bold;
+        }
+        .g4_sidechat_name{
+            color: #333;
+        }
+
+
+
+
+    </style>
+{% endblock %}
+
+{% block content %}
+<body>
+        <div id="main" class="container-fluid card hovercard">
+            <div class="row" style="margin-bottom:50px;">
+                <!--Fondo de color dependiendo de quien hables -->
+                <div class="card-background" style="height:50px;">
+                    <img class="" alt="" src="{{ url_for('static', filename='img/AnneHathaway.jpg') }}">
+                </div>
+                <div id="chatWithTiny" class="container-fluid card-info visible-xs">
+                    <div class="row"> 
+                        <div class="col-xs-12" ><h1 style="margin: 0 auto; font-weight: bold;" >Chat con: Anne Hathaway</h1>  </div>  
+                    </div>
+                </div>
+                <!-- /Fondo de color dependiendo de quien hables -->
+                <!-- Card-info para que se vea transparente -->
+                <section id="modContact" class="col-xs-2 col-md-2 col-lg-2 col-ms-2 card-info">
+                    <div class="row g4_sidebar_friend" data-id="f2">
+                        <div class="col-sm-4 g4_thumbnail_container">
+                            <img src="{{ url_for('static', filename='img/AnneHathaway.jpg') }}" class="g4_sidechat_thumbnail">
+                        </div>
+                        <div class=" hidden-xs col-sm-8 g4_name_container">
+                            <p class="g4_sidechat_name">Anne Hathaway</p>
+                        </div>
+                    </div>
+    
+                    <div class="row g4_sidebar_friend" data-id="f2">
+                        <div class="col-xs-12 col-sm-4 g4_thumbnail_container">
+                            <img src="{{ url_for('static', filename='img/josh-hutcherson.jpg') }}" class="g4_sidechat_thumbnail">
+                        </div>
+                        <div class=" hidden-xs col-sm-8 g4_name_container">
+                            <p class="g4_sidechat_name">Josh Hutcherson</p>
+                        </div>
+                    </div>
+                        
+                        <div class="row g4_sidebar_friend" data-id="f3">
+                            <div class="col-sm-4 g4_thumbnail_container">
+                                <img src="{{ url_for('static', filename='img/sasha.jpg') }}" class="g4_sidechat_thumbnail">
+                            </div>
+                            <div class="hidden-xs col-sm-8 g4_name_container">
+                                <p class="g4_sidechat_name">Sasha Lizardi</p>
+                            </div>
+                        </div>
+                        
+                        <div class="row g4_sidebar_friend" data-id="f4">
+                            <div class="col-sm-4 g4_thumbnail_container">
+                                <img src="{{ url_for('static', filename='img/zac-efron.jpg') }}" class="g4_sidechat_thumbnail">
+                            </div>
+                            <div class="hidden-xs col-sm-8 g4_name_container">
+                                <p class="g4_sidechat_name">Zac Efron</p>
+                            </div>
+                        </div>
+                        
+                        <div class="row g4_sidebar_friend" data-id="f5">
+                            <div class="col-sm-4 g4_thumbnail_container">
+                                <img src="{{ url_for('static', filename='img/mark-zuckerberg.jpg') }}" class="g4_sidechat_thumbnail">
+                            </div>
+                            <div class="hidden-xs col-sm-8 g4_name_container">
+                                <p class="g4_sidechat_name">Mark Zuckerberg</p>
+                            </div>
+                        </div>
+                        
+                        <div class="row g4_sidebar_friend" data-id="f6">
+                            <div class="col-sm-4 g4_thumbnail_container">
+                                <img src="{{ url_for('static', filename='img/saul-hudson.jpg') }}" class="g4_sidechat_thumbnail">
+                            </div>
+                            <div class="hidden-xs col-sm-8 g4_name_container">
+                                <p class="g4_sidechat_name">Saul Hudson</p>
+                            </div>
+                        </div>
+                        
+                        <div class="row g4_sidebar_friend" data-id="f7">
+                            <div class="col-sm-4 g4_thumbnail_container">
+                                <img src="{{ url_for('static', filename='img/arnold-schwarzenegger.jpeg') }}" class="g4_sidechat_thumbnail">
+                            </div>
+                            <div class="hidden-xs col-sm-8 g4_name_container">
+                                <p class="g4_sidechat_name">Arnold Schwarzenegger</p>
+                            </div>
+                        </div>
+                        
+                        <div class="row g4_sidebar_friend" data-id="f8">
+                            <div class="col-sm-4 g4_thumbnail_container">
+                                <img src="{{ url_for('static', filename='img/lisa-kudrow.jpeg') }}" class="g4_sidechat_thumbnail">
+                            </div>
+                            <div class="hidden-xs col-sm-8 g4_name_container">
+                                <p class="g4_sidechat_name">Regina Phalange</p>
+                            </div>
+                        </div>
+                        
+                        <div class="row g4_sidebar_friend" data-id="f9">
+                            <div class="col-sm-4 g4_thumbnail_container">
+                                <img src="{{ url_for('static', filename='img/david-schwimmer.jpeg') }}" class="g4_sidechat_thumbnail">
+                            </div>
+                            <div class="hidden-xs col-sm-8 g4_name_container">
+                                <p class="g4_sidechat_name">David Schwimmer</p>
+                            </div>
+                        </div>
+                        
+                        <div class="row g4_sidebar_friend" data-id="f10">
+                            <div class="col-sm-4 g4_thumbnail_container">
+                                <img src="{{ url_for('static', filename='img/courteney-cox.jpeg') }}" class="g4_sidechat_thumbnail">
+                            </div>
+                            <div class="hidden-xs col-sm-8 g4_name_container">
+                                <p class="g4_sidechat_name">Courteney Cox</p>
+                            </div>
+                        </div>
+                        
+                        <div class="row g4_sidebar_friend" data-id="f11">
+                            <div class="col-sm-4 g4_thumbnail_container">
+                                <img src="{{ url_for('static', filename='img/matt-leblanc.jpeg') }}" class="g4_sidechat_thumbnail">
+                            </div>
+                            <div class="hidden-xs col-sm-8 g4_name_container">
+                                <p class="g4_sidechat_name">Matt LeBlanc</p>
+                            </div>
+                        </div>
+                        
+                        <div class="row g4_sidebar_friend" data-id="f12">
+                            <div class="col-sm-4 g4_thumbnail_container">
+                                <img src="{{ url_for('static', filename='img/jennifer-aniston.jpeg') }}" class="g4_sidechat_thumbnail">
+                            </div>
+                            <div class="hidden-xs col-sm-8 g4_name_container">
+                                <p class="g4_sidechat_name">Jennifer Aniston</p>
+                            </div>
+                        </div>
+                        
+                        <div class="row g4_sidebar_friend" data-id="f13">
+                            <div class="col-sm-4 g4_thumbnail_container">
+                                <img src="{{ url_for('static', filename='img/matthew-perry.jpeg') }}" class="g4_sidechat_thumbnail">
+                            </div>
+                            <div class="hidden-xs col-sm-8 g4_name_container">
+                                <p class="g4_sidechat_name">Matthew Perry</p>
+                            </div>
+                        </div>
+                </section>
+                
+                <section id="modChat" class="col-xs-10 col-sm-6">
+                    <article id="ventana">
+                        
+                    </article>
+                    <article id="msjs" class="container-fluid">
+                        <div  >
+                            <div class="col-xs-9">
+                                <textarea class="form-control" name="msjArea" id="msjArea"></textarea>
+                            </div>                        
+                            <button id="sendMsj" class="col-xs-3 btn btn-info">Send </button>
+                        </div>
+                        <div >
+                            
+                            <div class="col-xs-1">
+                                <a href="#"><span class="glyphicon glyphicon-picture"></span></a>
+                            </div>
+                            <div class="col-xs-1">
+                                <a href="#"><span class="glyphicon glyphicon-thumbs-up"></span></a>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                
+                <section id="modInfo" class="col-xs-4 hidden-xs">
+                    <div class="container-fluid card-info">
+                         <div class="row">
+                            <h1 style="color: white">Anne Hathaway</h1>
+                        </div>
+                        <div class="row">
+                            <img src="{{ url_for('static', filename='img/AnneHathaway.jpg') }}">
+                        </div>
+                        
+                    </div>
+                    
+                </section>
+            </div>
+        </div>
+         
+       
+    </body>
+{% endblock %}
+
+{% block scripts %}
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{{ url_for('static', filename='js/ie10-viewport-bug-workaround.js') }}"></script>
+  
+	<!-- Script del sidebar chat -->
+	<script src="{{ url_for('static', filename='js/sidebar-chat.js') }}"></script>
+    <script>
+        $("#sendMsj").click(function(){           
+            
+            $("#ventana").append("<p class='globo'>"+ $("#msjArea").val()+"</p>");
+            $("#msjArea").val("");
+
+        });
+
+        $(".padre").click(function(e){
+            console.log(e.target);       
+          if (e.target !== this)
+            return;  
+          alert( 'Has clicado en el elemento padre' );
+        });
+    </script>
+{% endblock %}

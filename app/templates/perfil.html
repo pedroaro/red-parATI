@@ -1,0 +1,489 @@
+{% extends "link_base.html" %}
+{% set var_login = True %}
+{% block custom_links %}
+  <!-- Custom styles for this template -->
+    <link href="{{ url_for('static', filename='css/gallery.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/perfil.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/sidebar-chat.css') }}" rel="stylesheet">
+{% endblock %}
+<body onload="LoadPosts()">
+{% block content %}
+    
+    <div class="container-fluid">
+	<div class="row">
+		<!--Modulo de Perfil-->
+		<div class="col-md-9 col-lg-9 col-xl-9 col-xs-9 col-sm-9">
+    	<div class="card hovercard" >
+          <div class="card-background">
+              <img class="" alt="" src="{{ url_for('static', filename='img/avatar.jpg') }}">
+          </div>
+          <div class="useravatar">
+              <img alt="" src="{{ url_for('static', filename='img/avatar.jpg') }}">
+          </div>
+          <div class="card-info"> <span class="card-title" name="nombre">{{nombre + " " + apellido}}</span>
+            <br>
+            <span id="description" name="descripcion" class="card-description">
+               {{descripcion}}
+            </span>
+          </div>
+      </div>
+      <div style="margin-left: 10px">
+        <div class="btn-pref btn-group btn-group-justified btn-group-lg"  role="group" aria-label="...">
+            <div class="btn-group" role="group">
+                <button type="button" id="publicaciones" onclick="LoadPosts()" class="btn btn-primary" href="#posts" data-toggle="tab"><span class="glyphicon glyphicon-th" aria-hidden="true"></span>
+                    <div class="hidden-xs">Publicaciones</div>
+                </button>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" id="fotos" onclick="LoadPhotos()" class="btn btn-default" href="#photos" data-toggle="tab"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+                    <div class="hidden-xs">Fotos</div>
+                </button>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" id="habilidades" onclick="LoadSkills()" class="btn btn-default" href="#skills" data-toggle="tab"><span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span>
+                    <div class="hidden-xs">Personalidad</div>
+                </button>
+            </div>
+            <div class="btn-group" role="group">
+                <button type="button" id="amigos" class="btn btn-default" onclick="LoadFriends()" href="#friends" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    <div class="hidden-xs">Amigos</div>
+                </button>
+            </div>
+        </div>
+      </div>
+
+      <div id="posts">
+      <!-- ////////////////////////////////////////////// POST ///////////////////////////////////////////////// -->
+        <article class="post">
+          <header>
+            <div class="meta">
+              <center>
+              <time class="published" datetime="2015-11-01">26 de Diciembre, 2017</time>
+              <br>
+              <div class="useravatar">
+                  <img alt="" src="{{ url_for('static', filename='img/avatar.jpg') }}">
+              </div>
+              <a href="#" class="author"><span class="name" name="nombre">{{nombre}}</span></a>
+              </center>
+            </div>
+            <div class="title">
+              <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+            </div>
+          </header>
+          <a href="#" class="image featured"><img src="{{ url_for('static', filename='img/dark_beach.jpg') }}" alt="" /></a>
+          <footer>
+            <ul class="stats">
+              <li><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i>289</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-thumbs-down"></i>2</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-comment"></i>50</a></li>
+            </ul>
+          </footer>
+        </article>
+        <!-- ////////////////////////////////////////////// /POST ///////////////////////////////////////////////// -->
+        <!-- ////////////////////////////////////////////// POST ///////////////////////////////////////////////// -->
+        <article class="post">
+          <header>
+            <div class="meta">
+              <center>
+              <time class="published" datetime="2015-11-01">30 de Noviembre, 2017</time>
+              <br>
+              <div class="useravatar">
+                  <img alt="" src="{{ url_for('static', filename='img/avatar.jpg') }}">
+              </div>
+              <a href="#" class="author"><span class="name" name="nombre">{{nombre}}</span></a>
+              </center>
+            </div>
+            <div class="title">
+              <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+            </div>
+          </header>
+          <a href="#" class="image featured"><img src="{{ url_for('static', filename='img/THG.jpg') }}" alt=""/></a>
+          <footer>
+            <ul class="stats">
+              <li><a href="#"><i class="glyphicon glyphicon-thumbs-up"></i>453</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-thumbs-down"></i>65</a></li>
+              <li><a href="#"><i class="glyphicon glyphicon-comment"></i>123</a></li>
+            </ul>
+          </footer>
+        </article>
+        <!-- ////////////////////////////////////////////// /POST ///////////////////////////////////////////////// -->
+  		</div>
+
+        <!-- ////////////////////////////////////////////// FOTOS ///////////////////////////////////////////////// -->
+      <div id="photos">
+        <div class="bloqueBlanco">
+          <div class="fh5co-gallery">
+            <a class="gallery-item" href="single">
+              <img src="{{ url_for('static', filename='img/work_1.jpg') }}" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+              <span class="overlay blanco">
+                <h2>48</h2><span class="glyphicon glyphicon-heart blanco"  aria-hidden="true" ></span>
+                <h2>2</h2><span class="glyphicon glyphicon-comment blanco" aria-hidden="true"></span>
+              </span>
+            </a>
+            <a class="gallery-item" href="single">
+              <img src="{{ url_for('static', filename='img/work_2.jpg') }}" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+              <span class="overlay blanco">
+                <h2>67</h2><span class="glyphicon glyphicon-heart blanco"  aria-hidden="true" ></span>
+                <h2>12</h2><span class="glyphicon glyphicon-comment blanco" aria-hidden="true"></span>
+              </span>
+            </a>
+            <a class="gallery-item" href="single">
+              <img src="{{ url_for('static', filename='img/work_3.jpg') }}" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+              <span class="overlay blanco">
+                <h2>23</h2><span class="glyphicon glyphicon-heart blanco"  aria-hidden="true" ></span>
+                <h2>3</h2><span class="glyphicon glyphicon-comment blanco" aria-hidden="true"></span>
+              </span>
+            </a>
+            <a class="gallery-item" href="single">
+              <img src="{{ url_for('static', filename='img/work_4.jpg') }}" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+              <span class="overlay blanco">
+                <h2>47</h2><span class="glyphicon glyphicon-heart blanco"  aria-hidden="true" ></span>
+                <h2>29</h2><span class="glyphicon glyphicon-comment blanco" aria-hidden="true"></span>
+              </span>
+            </a>
+            <a class="gallery-item" href="single">
+              <img src="{{ url_for('static', filename='img/work_5.jpg') }}" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+              <span class="overlay blanco">
+                <h2>76</h2><span class="glyphicon glyphicon-heart blanco"  aria-hidden="true" ></span>
+                <h2>5</h2><span class="glyphicon glyphicon-comment blanco" aria-hidden="true"></span>
+              </span>
+            </a>
+            <a class="gallery-item" href="single">
+              <img src="{{ url_for('static', filename='img/work_6.jpg') }}" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
+              <span class="overlay blanco">
+                <h2>41</h2><span class="glyphicon glyphicon-heart blanco"  aria-hidden="true" ></span>
+                <h2>23</h2><span class="glyphicon glyphicon-comment blanco" aria-hidden="true"></span>
+              </span>
+            </a>
+          </div>
+          <center>
+            <a class="btn-round btn-default azul" href="fotos">Ver Todas</a>
+          </center>
+        </div> 
+
+      </div>
+
+        <!-- ////////////////////////////////////////////// SKILLS ///////////////////////////////////////////////// -->
+      <div id="skills">
+        <div class="bloqueBlanco">
+          <h3>Libros que me han gustado:</h3>
+          <div class="bloquePerla job" id="primeraC">
+          {% if (libro == "n/a") %}
+          <h4 name="libro"><a href="/personalizar">Personaliza esta sección haciendo click aquí</a><h4>
+          {% else %}
+            <h4 name="libro">{{libro}}</h4>
+          {% endif %}
+          </div>
+        </div>
+        <div class="bloqueBlanco">
+          <h3>Música que me gusta</h3>
+          <div class="bloquePerla job" id="primeraC"> 
+            {% if (musica == "n/a") %}
+            <h4 name="musica"><a href="/personalizar">Personaliza esta sección haciendo click aquí</a></h4>
+            {% else %}
+              <h4 name="musica">{{musica}}</h4>
+            {% endif %}
+          </div>
+        </div>
+        <div class="bloqueBlanco">
+          <h3>Mis Videojuegos favoritos:</h3>
+          <div class="bloquePerla job" id="primeraC"> 
+            {% if (video_juego == "n/a") %}
+              <a href="/personalizar"><h4 name="video_juego">Personaliza esta sección haciendo click aquí</a><h4>
+            {% else %}
+              <h4 name="video_juego">{{video_juego}}</h4>
+            {% endif %}
+          </div>
+        </div>
+        <div class="bloqueBlanco">
+            <h3>Habilidades Profesionales:</h3>
+            <p>HTML</p>
+            <div class="barraSkills">
+              <div class="skills relleno" id="barraHTML" value="90" style="width: 90%" >90%</div>
+            </div>
+
+            <p>CSS</p>
+            <div class="barraSkills">
+              <div class="skills relleno" id="barraCSS" value="80" style="width: 80%">80%</div>
+            </div>
+
+            <p>JavaScript</p>
+            <div class="barraSkills">
+              <div class="skills relleno" id="barraJS" value="65" style="width: 65%">65%</div>
+            </div>
+
+            <p>Python</p>
+            <div class="barraSkills">
+              <div class="skills relleno" id="barraPy" value="60" style="width: 60%">60%</div>
+            </div>
+
+            <p>PHP</p>
+            <div class="barraSkills">
+              <div class="skills relleno" id="barraPHP" value="10" style="width: 10%">10%</div>
+            </div>
+        </div>
+        <div class="bloqueBlanco">
+            <h3>Personalidad</h3>
+            <p>Deportista</p>
+            <div class="barraSkills">
+              <div class="skills relleno" id="barraHTML" value="90" style="width: 90%" >90%</div>
+            </div>
+
+            <p>Estudioso</p>
+            <div class="barraSkills">
+              <div class="skills relleno" id="barraCSS" value="80" style="width: 80%">80%</div>
+            </div>
+
+            <p>Rumbero</p>
+            <div class="barraSkills">
+              <div class="skills relleno" id="barraJS" value="65" style="width: 75%">75%</div>
+            </div>
+
+            <p>Amigable</p>
+            <div class="barraSkills">
+              <div class="skills relleno" id="barraPy" value="60" style="width: 100%">100%</div>
+            </div>
+
+            <p>Humor</p>
+            <div class="barraSkills">
+              <div class="skills relleno" id="barraPHP" value="10" style="width: 95%">95%</div>
+            </div>
+        </div>
+      </div>
+
+
+        <!-- ////////////////////////////////////////////// AMIGOS ///////////////////////////////////////////////// -->
+      <div class="bloqueBlanco" id="friends">
+        <div class="row">
+          <div class="shadow">
+            <div class="col-sm-12">
+              <div class="col-sm-3 useravatar">
+                <img src="{{ url_for('static', filename='img/AnneHathaway.jpg') }}">
+              </div>
+              <div class="col-sm-6">
+                <h4><a href="#">Anne Hathaway</a></h4>
+                <p><a href="#">2 mutual friends</a></p>
+              </div>
+              <div class="col-sm-3">
+                <button type="button" title="Chat" class="btn btn-default"><span class="glyphicon glyphicon-comment" aria-hidden="true"></button>
+                <button type="button" title="Eliminar" class="btn btn-default"><span class="glyphicon glyphicon-remove" aria-hidden="true"></button>
+                <button type="button" title="Mejor Amigo" class="btn btn-default"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></button>
+                <button type="button" title="Más (No disponible)" class="btn btn-default"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></button>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <hr />
+            <div class="col-sm-12">
+              <div class="col-sm-3 useravatar" >
+                <img src="{{ url_for('static', filename='img/zac-efron.jpg') }}">
+              </div>
+              <div class="col-sm-6">
+                <h4><a href="#">Zac Efron</a></h4>
+                <p><a href="#">3 mutual friends</a></p>
+              </div>
+              <div class="col-sm-3">
+                <button type="button" title="Chat" class="btn btn-default"><span class="glyphicon glyphicon-comment" aria-hidden="true"></button>
+                <button type="button" title="Eliminar" class="btn btn-default"><span class="glyphicon glyphicon-remove" aria-hidden="true"></button>
+                <button type="button" title="Mejor Amigo" class="btn btn-default"><span class="glyphicon glyphicon-star" aria-hidden="true"></button>
+                <button type="button" title="Más (No disponible)" class="btn btn-default"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></button>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <hr />
+            <div class="col-sm-12">
+              <div class="col-sm-3 useravatar">
+                <img src="{{ url_for('static', filename='img/sasha.jpg') }}">
+              </div>
+              <div class="col-sm-6">
+                <h4><a href="#">Sasha Lizardi</a></h4>
+                <p><a href="#">1 mutual friends</a></p>
+              </div>
+              <div class="col-sm-3">
+                <button type="button" title="Chat" class="btn btn-default"><span class="glyphicon glyphicon-comment" aria-hidden="true"></button>
+                <button type="button" title="Eliminar" class="btn btn-default"><span class="glyphicon glyphicon-remove" aria-hidden="true"></button>
+                <button type="button" title="Mejor Amigo" class="btn btn-default"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></button>
+                <button type="button" title="Más (No disponible)" class="btn btn-default"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></button>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <hr />
+            <div class="col-sm-12">
+              <div class="col-sm-3 useravatar">
+                <img src="{{ url_for('static', filename='img/josh-hutcherson.jpg') }}">
+              </div>
+              <div class="col-sm-6">
+                <h4><a href="#">Josh Hutcherson</a></h4>
+                <p><a href="#">4 mutual friends</a></p>
+              </div>
+              <div class="col-sm-3">
+                <button type="button" title="Chat" class="btn btn-default"><span class="glyphicon glyphicon-comment" aria-hidden="true"></button>
+                <button type="button" title="Eliminar" class="btn btn-default"><span class="glyphicon glyphicon-remove" aria-hidden="true"></button>
+                <button type="button" title="Mejor Amigo" class="btn btn-default"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></button>
+                <button type="button" title="Más (No disponible)" class="btn btn-default"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></button>
+              </div>
+            </div>
+            <div class="clearfix" style="margin-bottom: 2em;"></div>
+          </div>
+        </div>
+        <center>
+          <a class="btn-round btn-default azul" href="amigos">Ver Todos</a>
+        </center>
+      </div>
+    </div>
+		
+		
+		
+		<!--__________________________________INICIO_SIDEBAR_CHAT__________________________________-->
+
+		<div class="col-sm-3 hidden-xs">
+			<div class="row g4_sidechat">
+				<div class="col-sm-12">
+					
+					<!-- Amigos en la lista de contactos lateral -->
+					<div class="row g4_sidebar_friend" data-id="f1">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/AnneHathaway.jpg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Anne Hathaway</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f2">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/josh-hutcherson.jpg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Josh Hutcherson</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f3">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/sasha.jpg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Sasha Lizardi</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f4">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/zac-efron.jpg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Zac Efron</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f5">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/mark-zuckerberg.jpg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Mark Zuckerberg</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f6">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/saul-hudson.jpg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Saul Hudson</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f7">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/arnold-schwarzenegger.jpeg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Arnold Schwarzenegger</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f8">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/lisa-kudrow.jpeg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Regina Phalange</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f9">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/david-schwimmer.jpeg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">David Schwimmer</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f10">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/courteney-cox.jpeg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Courteney Cox</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f11">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/matt-leblanc.jpeg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Matt LeBlanc</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f12">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/jennifer-aniston.jpeg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Jennifer Aniston</p>
+						</div>
+					</div>
+					
+					<div class="row g4_sidebar_friend" data-id="f13">
+						<div class="col-sm-4 g4_thumbnail_container">
+							<img src="{{ url_for('static', filename='img/matthew-perry.jpeg') }}" class="g4_sidechat_thumbnail">
+						</div>
+						<div class="col-sm-8 g4_name_container">
+							<p class="g4_sidechat_name">Matthew Perry</p>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<!-- Chat tabs -->
+		<div class="col-xs-9 hidden-xs g4_chat_tab_container"></div>
+		
+		<!--__________________________________FIN_SIDEBAR_CHAT__________________________________-->
+		
+		
+		
+	</div>
+  </div>
+{% endblock %}
+</body>
+{% block scripts %}
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ url_for('static', filename='js/perfil.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.min.js')}}")></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{{ url_for('static', filename='js/ie10-viewport-bug-workaround.js')}}"></script>
+  
+	<!-- Script del sidebar chat -->
+	<script src="{{ url_for('static', filename='js/sidebar-chat.js')}}"></script>
+
+{% endblock %}
